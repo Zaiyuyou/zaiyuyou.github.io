@@ -60,4 +60,7 @@ exclude: null
 ignore: null
 theme: vivia
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/Zaiyuyou/zaiyuyou.github.io.git
+  branch: main #
+  message: 'Site updated: {{ now("YYYY-MM-DD HH:mm:ss") }}'
