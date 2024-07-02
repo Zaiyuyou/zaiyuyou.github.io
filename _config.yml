@@ -3,7 +3,7 @@ subtitle: ''
 description: ''
 keywords: null
 author: John Doe
-language: en
+language: ZH_cn
 timezone: ''
 url: http://example.com
 permalink: ':year/:month/:day/:title/'
@@ -58,6 +58,6 @@ pagination_dir: page
 include: null
 exclude: null
 ignore: null
-theme: vivia
+theme: vivia-
 deploy:
   type: ''
