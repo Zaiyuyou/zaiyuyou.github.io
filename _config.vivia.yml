@@ -12,8 +12,8 @@ favicon:                   # Favicon 文件路径，相对于 /source 目录（�
 
 # 横幅图片
 banner:
-  enable: false                  # 是否显示横幅图片
-  url:                           # 横幅图片文件路径，相对于 /source 目录，也可填写网络图片 URL
+  enable: true                  # 是否显示横幅图片
+  url: https://i0.hdslb.com/bfs/space/eb359fe8ebb9f948e8a0274f3b5b0ea699593535.png@2560w_400h_100q_1o.webp                          # 横幅图片文件路径，相对于 /source 目录，也可填写网络图片 URL
   position: center               # 决定图片将如何被裁剪，对应 CSS 中的 "object-position" 属性
   onAllPages: true               # 在所有页面上显示横幅，而不是只在首页显示
 
@@ -22,19 +22,19 @@ hue: 250                         # 主题色调 (例如：红: 0，橙: 60，蓝
                                  # 可访问 `saicaca.github.io/vivia-preview` 预览颜色设置
 
 # 个人信息
-avatar:                          # 头像图片文件路径，相对于 /source 目录
-author: Your Name
+avatar: /img/head.png                         # 头像图片文件路径，相对于 /source 目录
+author: Zaiyuyou
 subtitle: This is the subtitle
 links:
-  - name: Twitter
-    icon: fa-brands fa-twitter      # 访问 https://fontawesome.com/search 获取图标代码
-    url: https://twitter.com
-  - name: Steam
-    icon: fa-brands fa-steam
-    url: https://store.steampowered.com
+  # - name: Twitter
+  #   icon: fa-brands fa-twitter      # 访问 https://fontawesome.com/search 获取图标代码
+  #   url: https://twitter.com
+  # - name: Steam
+  #   icon: fa-brands fa-steam
+  #   url: https://store.steampowered.com
   - name: GitHub
     icon: fa-brands fa-github
-    url: https://github.com
+    url: https://github.com/Zaiyuyou/
 
 # 侧边栏
 sidebar:
@@ -51,7 +51,7 @@ sidebar:
 archive_type: 'monthly'
 recent_posts_limits: 5
 categories:
-  max_depth: 2             # 分类组件中显示的最大目录深度 (留空为不限制)
+  max_depth:              # 分类组件中显示的最大目录深度 (留空为不限制)
 
 # 第三方评论系统
 comment:
