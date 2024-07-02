@@ -1,9 +1,55 @@
-name: Deploy to GitHub Pages
+# name: Deploy to GitHub Pages
+
+# on:
+#   push:
+#     branches: [ main ]
+#   workflow_dispatch:
+
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout your repository using git
+#         uses: actions/checkout@v4
+  
+#       - name: Setup pnpm
+#         uses: pnpm/action-setup@v3
+#         with:
+#           version: latest
+  
+#       - name: Install dependencies with pnpm
+#         run: pnpm install
+
+#       - name: Install dependencies of sharp
+#         run: pnpm add sharp
+  
+#       - name: Install, build, and upload your site
+#         uses: withastro/action@v2
+
+#   deploy:
+#     needs: build
+#     runs-on: ubuntu-latest
+#     environment:
+#       name: github-pages
+#       url: ${{ steps.deployment.outputs.page_url }}
+#     steps:
+#       - name: Deploy to GitHub Pages
+#         id: deployment
+#         uses: actions/deploy-pages@v4
+
+
+name: Deploy Astro Site to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches:
+      - main # 当主分支有push时触发
+  workflow_dispatch: # 允许手动触发工作流
 
 permissions:
   contents: read
@@ -11,33 +57,24 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout repository
         uses: actions/checkout@v4
-  
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
           version: latest
-  
-      - name: Install dependencies with pnpm
-        run: pnpm install
 
-      - name: Install dependencies of sharp
-        run: pnpm add sharp
-  
-      - name: Install, build, and upload your site
-        uses: withastro/action@v2
+      - name: Install dependencies and build
+        run: |
+          pnpm install
+          pnpm astro build # 假定使用astro build来构建生产静态文件，默认输出到'dist'目录
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages # 部署到的分支
+          folder: dist # 要部署的目录，这里是Astro构建输出的目录
