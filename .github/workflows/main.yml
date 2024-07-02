@@ -1,0 +1,32 @@
+name: Deploy Hexo to GitHub Pages
+
+on:
+  push:
+    branches: [ main ] # 触发部署的分支，通常是main或master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: |
+        npm install hexo-cli -g
+        npm install
+        npm install colorjs.io stylus hexo-symbols-count-time # vivia主题所需依赖
+
+    - name: Generate static files
+      run: hexo clean && hexo generate
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
