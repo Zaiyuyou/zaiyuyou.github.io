@@ -1,10 +1,10 @@
-title: Hexo
+title: Zaiyuyou's Blog
 subtitle: ''
 description: ''
 keywords: null
-author: John Doe
-language: en
-timezone: ''
+author: Zaiyuyou
+language: zh-CN
+timezone: 'Asia/Shanghai'
 url: http://zaiyuyou.github.io
 permalink: ':year/:month/:day/:title/'
 permalink_defaults: null
