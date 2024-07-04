@@ -25,7 +25,7 @@ hue: 220                         # 主题色调 (例如：红: 0，橙: 60，蓝
 # 个人信息
 avatar: /img/head.png                         # 头像图片文件路径，相对于 /source 目录
 author: Zaiyuyou
-subtitle: 随心随意-常习常喜-拾慧时惠
+subtitle: 随心遂意-常习常喜-拾慧时惠
 links:
   # - name: Twitter
   #   icon: fa-brands fa-twitter      # 访问 https://fontawesome.com/search 获取图标代码
