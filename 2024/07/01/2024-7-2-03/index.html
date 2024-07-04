@@ -14,7 +14,7 @@
   
 
   
-  <title>函数指针 | 在与有的小屋</title>
+  <title>函数指针 | 在与有的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
@@ -24,11 +24,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数指针">
 <meta property="og:url" content="http://zaiyuyou.github.io/2024/07/01/2024-7-2-03/index.html">
-<meta property="og:site_name" content="在与有的小屋">
+<meta property="og:site_name" content="在与有的小站">
 <meta property="og:description" content="函数指针 函数指针的定义 本质是一个指针 指向函数的指针  引言OK啊，结合计算机组成、单片机系统基础、操作系统。不难知道，无论是目前PC的冯诺依曼架构，还是单片机的哈佛架构，程序都是需要空间保存的，只不过两个架构保存的地方不一样而已。 那么，函数当然有自己的指针啦，不然你汇编JMP怎么知道跳到哪一行。 C语言也差不多，C语言中函数的名字就是函数的首地址（入口地址），那么我定义一个指针指向这里当然">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-03T02:08:55.531Z">
+<meta property="article:modified_time" content="2024-07-04T03:46:08.824Z">
 <meta property="article:author" content="Zaiyuyou">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="C">
@@ -72,7 +72,7 @@
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
-      <div>在与有的小屋 </div>
+      <div>在与有的小站 </div>
     </a>
   </nav>
   <nav id="main-nav">
@@ -133,7 +133,7 @@
     <div class="info">
       <div class="username">Zaiyuyou </div>
       <div class="dot"></div>
-      <div class="subtitle">随心随意-常习常喜-拾慧时惠 </div>
+      <div class="subtitle">随心遂意-常习常喜-拾慧时惠 </div>
       <div class="link-list">
         
           <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/Zaiyuyou/" title="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -155,7 +155,7 @@
       <div class="category-box">
             <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">
                 编程
-                <div class="category-count">4</div>
+                <div class="category-count">5</div>
             </a>
         </div>
     </div>
@@ -239,9 +239,11 @@
 
 <p>  函数指针的调用可以省略括号</p>
 <hr>
-<h4 id="函数指针的妙用"><a href="#函数指针的妙用" class="headerlink" title="函数指针的妙用"></a>函数指针的妙用</h4><p>当然是用函数指针把功能类似编个组丢一起啦！这样在<a target="_blank" rel="noopener" href="https://bbs.huaweicloud.com/blogs/334869">函数策略</a>的时候甚至可以用偏移量来决定调用的函数，谁用Switch来路由啊~</p>
+<h2 id="函数指针数组"><a href="#函数指针数组" class="headerlink" title="函数指针数组"></a>函数指针数组</h2><p>函数指针常用常用于将函数作为参数传递给另一个函数，这个函数就被称为<a target="_blank" rel="noopener" href="https://bbs.huaweicloud.com/blogs/273798">回调函数</a></p>
+<h4 id="函数指针数组的妙用"><a href="#函数指针数组的妙用" class="headerlink" title="函数指针数组的妙用"></a>函数指针数组的妙用</h4><p>当然是用函数指针把功能类似编个组放一起啦！(相当于建立函数库)这样在使用回调函数的时候甚至可以用偏移量来决定调用的函数，就不需要Switch来路由函数了。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int first(char a)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">int second(char a)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">int third(char a)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义一个函数指针数组</span><br><span class="line">int (*p[])(char) = &#123;first,second,third</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int n , b;</span><br><span class="line"></span><br><span class="line">scanf(&quot;%d, %d&quot;,&amp;n, &amp;b);</span><br><span class="line"></span><br><span class="line">p[n%3](b);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>OK啊，这代码实现函数路由保证你是你们开发组的顶梁柱，函数指针用的六，老板认你当舅舅。</p>
+
+
 <hr>
 <h4 id="顺便复习一下指针为什么要有类型？"><a href="#顺便复习一下指针为什么要有类型？" class="headerlink" title="顺便复习一下指针为什么要有类型？"></a>顺便复习一下指针为什么要有类型？</h4><ul>
 <li>防止对内存的越界操作<br><em>(我改一个2B的变量，结果指针的类型是4B的类型，你猜猜多出来的2B的数据写哪去了？&#x2F;&#x2F;操作系统：阿米诺斯，编译器你怎么给这操作允许了，给我栈区都干穿了，线程都干开线了。)</em></li>
@@ -276,13 +278,13 @@
   </a>
   <a class="article-nav-btn right "
     
-      href="/2024/07/01/2024-7-3-01/"
-      title="函数指针"
+      href="/2024/07/01/2024-7-4-01/"
+      title="指针知识的补充"
      >
 
     <p class="title-text">
       
-        函数指针
+        指针知识的补充
         
     </p>
     <i class="fa-solid fa-angle-right"></i>

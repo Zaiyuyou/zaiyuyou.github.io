@@ -14,16 +14,16 @@
   
 
   
-  <title>在与有的小屋</title>
+  <title>在与有的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="在与有的小屋">
+<meta property="og:title" content="在与有的小站">
 <meta property="og:url" content="http://zaiyuyou.github.io/index.html">
-<meta property="og:site_name" content="在与有的小屋">
+<meta property="og:site_name" content="在与有的小站">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Zaiyuyou">
 <meta name="twitter:card" content="summary">
@@ -65,7 +65,7 @@
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
-      <div>在与有的小屋 </div>
+      <div>在与有的小站 </div>
     </a>
   </nav>
   <nav id="main-nav">
@@ -126,7 +126,7 @@
     <div class="info">
       <div class="username">Zaiyuyou </div>
       <div class="dot"></div>
-      <div class="subtitle">随心随意-常习常喜-拾慧时惠 </div>
+      <div class="subtitle">随心遂意-常习常喜-拾慧时惠 </div>
       <div class="link-list">
         
           <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/Zaiyuyou/" title="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -148,7 +148,7 @@
       <div class="category-box">
             <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">
                 编程
-                <div class="category-count">4</div>
+                <div class="category-count">5</div>
             </a>
         </div>
     </div>
@@ -187,7 +187,7 @@
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/03/Welcome/">欢迎！</a>
+        <a class="p-name article-title" href="/2024/07/04/Welcome/">欢迎！</a>
       </h1>
     
   
@@ -195,7 +195,7 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-03T02:08:55.531Z" itemprop="datePublished">2024-07-03</time>
+  <time class="dt-published" datetime="2024-07-04T03:46:08.824Z" itemprop="datePublished">2024-07-04</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -448,9 +448,11 @@
 
 <p>  函数指针的调用可以省略括号</p>
 <hr>
-<h4 id="函数指针的妙用"><a href="#函数指针的妙用" class="headerlink" title="函数指针的妙用"></a>函数指针的妙用</h4><p>当然是用函数指针把功能类似编个组丢一起啦！这样在<a target="_blank" rel="noopener" href="https://bbs.huaweicloud.com/blogs/334869">函数策略</a>的时候甚至可以用偏移量来决定调用的函数，谁用Switch来路由啊~</p>
+<h2 id="函数指针数组"><a href="#函数指针数组" class="headerlink" title="函数指针数组"></a>函数指针数组</h2><p>函数指针常用常用于将函数作为参数传递给另一个函数，这个函数就被称为<a target="_blank" rel="noopener" href="https://bbs.huaweicloud.com/blogs/273798">回调函数</a></p>
+<h4 id="函数指针数组的妙用"><a href="#函数指针数组的妙用" class="headerlink" title="函数指针数组的妙用"></a>函数指针数组的妙用</h4><p>当然是用函数指针把功能类似编个组放一起啦！(相当于建立函数库)这样在使用回调函数的时候甚至可以用偏移量来决定调用的函数，就不需要Switch来路由函数了。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int first(char a)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">int second(char a)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">int third(char a)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义一个函数指针数组</span><br><span class="line">int (*p[])(char) = &#123;first,second,third</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int n , b;</span><br><span class="line"></span><br><span class="line">scanf(&quot;%d, %d&quot;,&amp;n, &amp;b);</span><br><span class="line"></span><br><span class="line">p[n%3](b);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>OK啊，这代码实现函数路由保证你是你们开发组的顶梁柱，函数指针用的六，老板认你当舅舅。</p>
+
+
 <hr>
 <h4 id="顺便复习一下指针为什么要有类型？"><a href="#顺便复习一下指针为什么要有类型？" class="headerlink" title="顺便复习一下指针为什么要有类型？"></a>顺便复习一下指针为什么要有类型？</h4><ul>
 <li>防止对内存的越界操作<br><em>(我改一个2B的变量，结果指针的类型是4B的类型，你猜猜多出来的2B的数据写哪去了？&#x2F;&#x2F;操作系统：阿米诺斯，编译器你怎么给这操作允许了，给我栈区都干穿了，线程都干开线了。)</em></li>
@@ -480,7 +482,7 @@
    
 
 
-<article id="post-2024-7-3-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-2024-7-4-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -493,7 +495,7 @@
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/01/2024-7-3-01/">函数指针</a>
+        <a class="p-name article-title" href="/2024/07/01/2024-7-4-01/">指针知识的补充</a>
       </h1>
     
   
@@ -512,7 +514,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1k 词 
+            800 词 
           </div>
         </div>
         
@@ -521,30 +523,167 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h2 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h2><hr>
-<h3 id="函数指针的定义"><a href="#函数指针的定义" class="headerlink" title="函数指针的定义"></a>函数指针的定义</h3><ul>
-<li>本质是一个指针</li>
-<li>指向函数的指针</li>
+          <h1 id="容易混淆的指针"><a href="#容易混淆的指针" class="headerlink" title="容易混淆的指针"></a>容易混淆的指针</h1><hr>
+<h2 id="指针数组和数组指针"><a href="#指针数组和数组指针" class="headerlink" title="指针数组和数组指针"></a>指针数组和数组指针</h2><ol>
+<li><p><strong><code>int *a[10]</code></strong></p>
+<ul>
+<li>指针数组，本质是数组，数组中的元素是int类型的指针。它加一相当于下标加一。常用于保存字符串。</li>
 </ul>
-<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>OK啊，结合计算机组成、单片机系统基础、操作系统。<br>不难知道，无论是目前PC的冯诺依曼架构，还是单片机的哈佛架构，程序都是需要空间保存的，只不过两个架构保存的地方不一样而已。</p>
-<p>那么，函数当然有自己的指针啦，不然你汇编JMP怎么知道跳到哪一行。</p>
-<p>C语言也差不多，C语言中函数的名字就是函数的首地址（入口地址），那么我定义一个指针指向这里当然是一个允许的操作啦~</p>
-<p>而这种内容存的是函数入口地址的指针变量，我们就叫它函数指针用来和其他的数据指针区别一下。</p>
-<p>顺便说一下，<strong>这种“存入口地址”或者“存起始地址”的指针，往往定义的时候喜欢用 <code>类型 + (*指针名)</code>定义</strong>，数组指针也这样，函数指针也这样；不加括号就是反过来指针数组，指针函数。(开始晕了)</p>
+</li>
+<li><p><strong><code>int (*a)[10]</code></strong></p>
+<ul>
+<li>数组指针，指针指向了一个数组入口，本质是一个指针。它加一的话就是指向数组末尾后的数据。常用于作为二维数组的行指针。</li>
+</ul>
+</li>
+</ol>
+<p>在<a href="https://zaiyuyou.github.io/2024/07/01/2024-7-2-03/">前文</a>中有提到，带括号的都是指针，不带括号的就是各种指针可指向的数据或者函数。</p>
+<ol>
+<li><strong><code>int **p</code></strong><ul>
+<li>二级指针，常用于代表指针数组，将指针数组传入函数中</li>
+</ul>
+</li>
+</ol>
+<h2 id="指针函数和函数指针"><a href="#指针函数和函数指针" class="headerlink" title="指针函数和函数指针"></a>指针函数和函数指针</h2><ol>
+<li><p><strong><code>int *fun(void)</code></strong></p>
+<ul>
+<li>指针函数，返回一个指向int的指针。</li>
+</ul>
+</li>
+<li><p><strong><code>int (*fun)(void)</code></strong></p>
+<ul>
+<li>函数指针，指向一个返回int的函数。方便使用函数指针变量将函数作为参数传入。</li>
+</ul>
+</li>
+</ol>
 <hr>
-<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int max(int x, int y)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">int min(int x, int y)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义一个传参为两个int，返回值为int的函数指针。</span><br><span class="line">int (*p)(int, int);</span><br></pre></td></tr></table></figure>
-<p>这样就相当于给两个函数都抽象出来了,那么是不是可以做点什么呢<a href="####%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E7%9A%84%E5%A6%99%E7%94%A8">……</a></p>
-<h4 id="函数指针的调用"><a href="#函数指针的调用" class="headerlink" title="函数指针的调用"></a>函数指针的调用</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//接上文代码</span><br><span class="line"></span><br><span class="line">p = max;</span><br><span class="line">num = (*p)(3,5);</span><br><span class="line">num = p(3,5);</span><br></pre></td></tr></table></figure>
+<h1 id="一些特殊的指针"><a href="#一些特殊的指针" class="headerlink" title="一些特殊的指针"></a>一些特殊的指针</h1><ol>
+<li><strong><code>void *p</code></strong><ul>
+<li><strong>表示通用指针，或者未定义类型的指针，任何类型的指针都可以赋值给它。</strong></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>比如常用的memset函数<code>void *memset(void *s, int c, size_t n);</code>功能就是将s指向的内存的前n个字节全部用c赋值。这里就用了通用指针s，且返回值也是通用指针。</li>
+<li>在C99标准中，使用<code>void *p = malloc(sizeof(int))</code>来为这种通用指针赋值从而分配内存被认为是安全的；如果你想要在堆上开辟一片数组，则可以使用<code>void *p = calloc(sizeof(int), 10);</code></li>
+</ul>
+<ol start="2">
+<li><strong><code>NULL</code></strong><ul>
+<li>空指针，未赋值的指针都指向NULL。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>比如<code>int *p = NULL;</code>就是将p指向NULL。</li>
+</ul>
+<ol start="3">
+<li><p><strong><code>void *p = malloc(sizeof(int));</code></strong></p>
+<ul>
+<li>动态分配内存，返回一个指向void的指针，即通用指针。</li>
+</ul>
+</li>
+<li><p><strong><code>void *p = calloc(sizeof(int), 10);</code></strong></p>
+<ul>
+<li>动态分配内存，返回一个指向void的指针，即通用指针。</li>
+</ul>
+</li>
+</ol>
+<h1 id="mian函数传参"><a href="#mian函数传参" class="headerlink" title="mian函数传参"></a>mian函数传参</h1><ol>
+<li><strong><code>int main(int argc, char *argv[], char *envp[])</code></strong><ul>
+<li>argc是命令行参数的个数</li>
+<li>argv是命令行参数的数组。</li>
+<li>envp是环境变量的数组；可省略。</li>
+</ul>
+</li>
+</ol>
+
+        
+      </div>
+
+       
+        <footer class="article-footer">
+           
+        </footer>
+         
+    </div>
+    
+     
+  </div>
+  
+</article>
 
 
-<p>  函数指针的调用可以省略括号</p>
-<hr>
-<h4 id="函数指针的妙用"><a href="#函数指针的妙用" class="headerlink" title="函数指针的妙用"></a>函数指针的妙用</h4><p>当然是用函数指针把功能类似编个组丢一起啦！这样在<a target="_blank" rel="noopener" href="https://bbs.huaweicloud.com/blogs/334869">函数策略</a>的时候甚至可以用偏移量来决定调用的函数，谁用Switch来路由啊~</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int first(char a)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">int second(char a)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">int third(char a)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义一个函数指针数组</span><br><span class="line">int (*p[])(char) = &#123;first,second,third</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int n , b;</span><br><span class="line"></span><br><span class="line">scanf(&quot;%d, %d&quot;,&amp;n, &amp;b);</span><br><span class="line"></span><br><span class="line">p[n%3](b);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>OK啊，这代码实现函数路由保证你是你们开发组的顶梁柱，函数指针用的六，老板认你当舅舅。</p>
-<hr>
-<h4 id="顺便复习一下指针为什么要有类型？"><a href="#顺便复习一下指针为什么要有类型？" class="headerlink" title="顺便复习一下指针为什么要有类型？"></a>顺便复习一下指针为什么要有类型？</h4><ul>
-<li>防止对内存的越界操作<br><em>(我改一个2B的变量，结果指针的类型是4B的类型，你猜猜多出来的2B的数据写哪去了？&#x2F;&#x2F;操作系统：阿米诺斯，编译器你怎么给这操作允许了，给我栈区都干穿了，线程都干开线了。)</em></li>
+
+
+
+
+
+   
+
+
+<article id="post-2024-7-4-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/07/01/2024-7-4-02/">动态内存申请</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-01T16:00:00.000Z" itemprop="datePublished">2024-07-02</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            440 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>动态内存申请实际上是在堆区开辟内存空间，而堆区空间手动开辟，手动释放，不像栈区由操作系统自动维护。同时，很多时候我们需要的内存空间取决于实际输入的数据，所以我们就需要动态分配内存了。</p>
+<h2 id="动态分配函数"><a href="#动态分配函数" class="headerlink" title="动态分配函数"></a>动态分配函数</h2><ol>
+<li><code>stdlib.h</code>C标准库函数</li>
+</ol>
+<ul>
+<li><p><code>void *malloc(unsigned int size)</code>函数</p>
+<ul>
+<li>在<a target="_blank" rel="noopener" href="https://blog.csdn.net/panjiapengfly/article/details/102665381"><strong>堆区</strong></a>中分配一块长度为size字节的连续存储空间；并返回指向该存储空间首地址的指针，分配失败时，返回NULL。</li>
+<li><strong>注意</strong><ul>
+<li>一般用<code>memset</code>初始化</li>
+<li><strong>调用<code>malloc</code>后一定要判断一下是否申请成功</strong></li>
+<li>每次<code>malloc</code>申请的空间是连续的，但是多次<code>malloc</code>申请的空间不一定连续。</li>
+<li>返回的是<code>void *</code>指针，在调用函数时，需要强制类型转换成我们需要的类型。<strong>即-养成malloc前面接强转的好习惯。</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>void *calloc(unsigned int n, unsigned int size)</code>函数</p>
+<ul>
+<li>在堆区中分配一块长度为n×size字节的连续存储空间；并返回指向该存储空间首地址的指针；分配失败时，返回NULL。  </li>
+<li>分配的空间被初始化为0</li>
+</ul>
+</li>
 </ul>
 
         
