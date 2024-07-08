@@ -28,7 +28,7 @@
 <meta property="og:description" content="指针函数 指针函数的定义 本质是一个函数 指针作为函数的返回值  用例12345char * func()&#123;    char *p &#x3D; &quot;123&quot;;&#x2F;&#x2F;创建变量123    return p;&#x2F;&#x2F;返回p的地址&#125;  指针函数的坑 这个指针函数返回的指针指向的数据一定是字符串”123”吗？ 如果让刚学完C语言的我回答，我可能会从语气中听出一些端倪，但是要我说个原">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-04T03:46:08.824Z">
+<meta property="article:modified_time" content="2024-07-08T00:15:23.635Z">
 <meta property="article:author" content="Zaiyuyou">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="C">
@@ -155,7 +155,7 @@
       <div class="category-box">
             <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">
                 编程
-                <div class="category-count">5</div>
+                <div class="category-count">6</div>
             </a>
         </div>
     </div>
@@ -226,7 +226,7 @@
 <li>本质是一个函数</li>
 <li>指针作为函数的返回值</li>
 </ul>
-<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">char * func()&#123;</span><br><span class="line">    char *p = &quot;123&quot;;//创建变量123</span><br><span class="line">    return p;//返回p的地址</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">char</span> * <span class="title function_">func</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span> *p = <span class="string">&quot;123&quot;</span>;<span class="comment">//创建变量123</span></span><br><span class="line">    <span class="keyword">return</span> p;<span class="comment">//返回p的地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="指针函数的坑"><a href="#指针函数的坑" class="headerlink" title="指针函数的坑"></a>指针函数的坑</h4><p> <strong>这个指针函数返回的指针指向的数据一定是字符串”123”吗？</strong></p>
 <p>如果让刚学完C语言的我回答，我可能会从语气中听出一些端倪，但是要我说个原因倒是不好描述。不过现在回过头来看，底层知识的清明就可以很快找到问题的关键了。</p>
@@ -234,7 +234,7 @@
 <p>这会带来什么呢？如果还记得指针的意义的话，就知道指针存的是地址，而不是数据，那么既然栈空间的数据都释放掉了，返回的指针指向的内存自然是没有意义的。或者说会获得一个“脏值”</p>
 <p>ok，那么怎么解决这个问题呢？<br>难道要在外部调用这个函数的线程上就创建这个值吗？这明显不符合函数的要求和目的</p>
 <p>其实很简单，static一下就能让操作系统为你的变量保留内存地址了。这也是static的“主要用途”。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">char * func()&#123;</span><br><span class="line">    static char *p = &quot;123&quot;;//创建变量123</span><br><span class="line">    return p;//返回p的地址</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">char</span> * <span class="title function_">func</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">char</span> *p = <span class="string">&quot;123&quot;</span>;<span class="comment">//创建变量123</span></span><br><span class="line">    <span class="keyword">return</span> p;<span class="comment">//返回p的地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         
       </div>

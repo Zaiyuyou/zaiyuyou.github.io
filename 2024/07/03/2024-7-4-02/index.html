@@ -14,21 +14,21 @@
   
 
   
-  <title>指针知识的补充 | 在与有的小站</title>
+  <title>动态内存申请 | 在与有的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="容易混淆的指针 指针数组和数组指针 int *a[10]  指针数组，本质是数组，数组中的元素是int类型的指针。它加一相当于下标加一。常用于保存字符串。   int (*a)[10]  数组指针，指针指向了一个数组入口，本质是一个指针。它加一的话就是指向数组末尾后的数据。常用于作为二维数组的行指针。    在前文中有提到，带括号的都是指针，不带括号的就是各种指针可指向的数据或者函数。  int">
+  <meta name="description" content="概念动态内存申请实际上是在堆区开辟内存空间，而堆区空间手动开辟，手动释放，不像栈区由操作系统自动维护。同时，很多时候我们需要的内存空间取决于实际输入的数据，所以我们就需要动态分配内存了。 动态分配函数 注意动态内存分配函数的使用需要注意以下几点： 一般用memset初始化 调用函数后一定要判断一下是否申请成功 每次调用函数申请的空间是连续的，但是多次调用函数申请的空间不一定连续。 返回的是void">
 <meta property="og:type" content="article">
-<meta property="og:title" content="指针知识的补充">
-<meta property="og:url" content="http://zaiyuyou.github.io/2024/07/01/2024-7-4-01/index.html">
+<meta property="og:title" content="动态内存申请">
+<meta property="og:url" content="http://zaiyuyou.github.io/2024/07/03/2024-7-4-02/index.html">
 <meta property="og:site_name" content="在与有的小站">
-<meta property="og:description" content="容易混淆的指针 指针数组和数组指针 int *a[10]  指针数组，本质是数组，数组中的元素是int类型的指针。它加一相当于下标加一。常用于保存字符串。   int (*a)[10]  数组指针，指针指向了一个数组入口，本质是一个指针。它加一的话就是指向数组末尾后的数据。常用于作为二维数组的行指针。    在前文中有提到，带括号的都是指针，不带括号的就是各种指针可指向的数据或者函数。  int">
+<meta property="og:description" content="概念动态内存申请实际上是在堆区开辟内存空间，而堆区空间手动开辟，手动释放，不像栈区由操作系统自动维护。同时，很多时候我们需要的内存空间取决于实际输入的数据，所以我们就需要动态分配内存了。 动态分配函数 注意动态内存分配函数的使用需要注意以下几点： 一般用memset初始化 调用函数后一定要判断一下是否申请成功 每次调用函数申请的空间是连续的，但是多次调用函数申请的空间不一定连续。 返回的是void">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-04T03:46:08.824Z">
+<meta property="article:published_time" content="2024-07-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-08T00:15:23.635Z">
 <meta property="article:author" content="Zaiyuyou">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="C">
@@ -155,7 +155,7 @@
       <div class="category-box">
             <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">
                 编程
-                <div class="category-count">5</div>
+                <div class="category-count">6</div>
             </a>
         </div>
     </div>
@@ -180,7 +180,7 @@
        
 
 
-<article id="post-2024-7-4-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-2024-7-4-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -193,7 +193,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        指针知识的补充
+        动态内存申请
       </h1>
     
   
@@ -201,7 +201,7 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-01T16:00:00.000Z" itemprop="datePublished">2024-07-02</time>
+  <time class="dt-published" datetime="2024-07-03T16:00:00.000Z" itemprop="datePublished">2024-07-04</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -212,7 +212,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            800 词 
+            1.4k 词 
           </div>
         </div>
         
@@ -221,78 +221,44 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="容易混淆的指针"><a href="#容易混淆的指针" class="headerlink" title="容易混淆的指针"></a>容易混淆的指针</h1><hr>
-<h2 id="指针数组和数组指针"><a href="#指针数组和数组指针" class="headerlink" title="指针数组和数组指针"></a>指针数组和数组指针</h2><ol>
-<li><p><strong><code>int *a[10]</code></strong></p>
+          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>动态内存申请实际上是在堆区开辟内存空间，而堆区空间手动开辟，手动释放，不像栈区由操作系统自动维护。同时，很多时候我们需要的内存空间取决于实际输入的数据，所以我们就需要动态分配内存了。</p>
+<h2 id="动态分配函数"><a href="#动态分配函数" class="headerlink" title="动态分配函数"></a>动态分配函数</h2><ul>
+<li><strong>注意</strong><br><em>动态内存分配函数的使用需要注意以下几点：</em><ul>
+<li>一般用<code>memset</code>初始化</li>
+<li><strong>调用函数后一定要判断一下是否申请成功</strong></li>
+<li>每次调用函数申请的空间是连续的，但是多次调用函数申请的空间不一定连续。</li>
+<li>返回的是<code>void *</code>指针，在调用函数时，需要强制类型转换成我们需要的类型。<strong>即-养成调用函数前面接强转的好习惯。</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="malloc函数"><a href="#malloc函数" class="headerlink" title="malloc函数"></a>malloc函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> *<span class="title function_">malloc</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> size)</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  在堆区开辟指定长度的连续内存空间</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  size指定开辟内存空间的大小，单位为字节</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回指向开辟内存空间首地址的指针(void *)，</span></span><br><span class="line"><span class="comment">  如果开辟失败，返回NULL</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>指针数组，本质是数组，数组中的元素是int类型的指针。它加一相当于下标加一。常用于保存字符串。</li>
+<li>在<a target="_blank" rel="noopener" href="https://blog.csdn.net/panjiapengfly/article/details/102665381"><strong>堆区</strong></a>中分配一块长度为size字节的连续存储空间；并返回指向该存储空间首地址的指针，分配失败时，返回NULL。</li>
 </ul>
-</li>
-<li><p><strong><code>int (*a)[10]</code></strong></p>
+<h3 id="calloc函数"><a href="#calloc函数" class="headerlink" title="calloc函数"></a>calloc函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> *<span class="title function_">calloc</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> n, <span class="type">unsigned</span> <span class="type">int</span> size)</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  在堆区开辟指定长度的连续内存空间，并初始化为0</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  n指定开辟内存空间的个数</span></span><br><span class="line"><span class="comment">  size指定开辟内存空间的大小，单位为字节</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回指向开辟内存空间首地址的指针(void *)，</span></span><br><span class="line"><span class="comment">  如果开辟失败，返回NULL</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
 <ul>
-<li>数组指针，指针指向了一个数组入口，本质是一个指针。它加一的话就是指向数组末尾后的数据。常用于作为二维数组的行指针。</li>
+<li>在堆区中分配一块<strong>长度为n×size字节的连续存储空间</strong>；并返回指向该存储空间首地址的指针；分配失败时，返回NULL。  </li>
+<li>和<code>malloc</code>只分布内存不负责初始化不同，<code>calloc</code>分配的空间被初始化为0</li>
 </ul>
-</li>
-</ol>
-<p>在<a href="https://zaiyuyou.github.io/2024/07/01/2024-7-2-03/">前文</a>中有提到，带括号的都是指针，不带括号的就是各种指针可指向的数据或者函数。</p>
-<ol>
-<li><strong><code>int **p</code></strong><ul>
-<li>二级指针，常用于代表指针数组，将指针数组传入函数中</li>
-</ul>
-</li>
-</ol>
-<h2 id="指针函数和函数指针"><a href="#指针函数和函数指针" class="headerlink" title="指针函数和函数指针"></a>指针函数和函数指针</h2><ol>
-<li><p><strong><code>int *fun(void)</code></strong></p>
+<h3 id="realloc函数"><a href="#realloc函数" class="headerlink" title="realloc函数"></a>realloc函数</h3><p>调用<code>malloc</code>和<code>calloc</code>函数单次申请的内存是连续的，两次申请的两块内存不一定连续。为了满足这种需求，即我先用<code>malloc</code>或者<code>calloc</code>申请了一块内存，我还想在原先内存的基础上挨着申请内存。或者我开始时候使用<code>malloc</code>或<code>calloc</code>申请了一块内存，我想释放后边的一部分未使用的内存。为了解决这个问题，发明了<code>realloc</code>这个函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> *<span class="title function_">realloc</span><span class="params">(<span class="type">void</span> *ptr, <span class="type">unsigned</span> <span class="type">int</span> newsize)</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  重新分配内存空间,调整已分配内存空间的大小</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  ptr指向要重新分配内存空间的指针</span></span><br><span class="line"><span class="comment">  newsize指定重新分配内存空间的大小，单位为字节</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回指向重新分配内存空间首地址的指针(void *)，</span></span><br><span class="line"><span class="comment">  如果分配失败，返回NULL</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>指针函数，返回一个指向int的指针。</li>
+<li>如果传入的指针的内存空间<br>后面有足够的空间，则直接调整大小，并返回指针；</li>
+<li>如果传入的指针的内存空间后面没有足够的空间，则重新开辟一块大小为<code>newsize</code>字节的内存空间，并将原内存空间的内容复制到新内存空间中，并返回新内存空间的指针；</li>
+<li>如果传入的指针为NULL，则相当于调用<code>malloc</code>函数；</li>
+<li>如果<code>newsize</code>小于传入的指针指向的内存空间，则只调整大小，不改变内容。</li>
 </ul>
-</li>
-<li><p><strong><code>int (*fun)(void)</code></strong></p>
+<h3 id="free函数"><a href="#free函数" class="headerlink" title="free函数"></a>free函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">free</span><span class="params">(<span class="type">void</span> *ptr)</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：释放堆区空间</span></span><br><span class="line"><span class="comment">参数：ptr指向要释放的内存空间</span></span><br><span class="line"><span class="comment">返回值：无</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
 <ul>
-<li>函数指针，指向一个返回int的函数。方便使用函数指针变量将函数作为参数传入。</li>
+<li>释放指针指向的内存空间</li>
+<li><code>ptr</code>必须是<code>malloc</code>、<code>calloc</code>、<code>realloc</code>函数返回的指针，否则结果是未定义的。</li>
 </ul>
-</li>
-</ol>
-<hr>
-<h1 id="一些特殊的指针"><a href="#一些特殊的指针" class="headerlink" title="一些特殊的指针"></a>一些特殊的指针</h1><ol>
-<li><strong><code>void *p</code></strong><ul>
-<li><strong>表示通用指针，或者未定义类型的指针，任何类型的指针都可以赋值给它。</strong></li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>比如常用的memset函数<code>void *memset(void *s, int c, size_t n);</code>功能就是将s指向的内存的前n个字节全部用c赋值。这里就用了通用指针s，且返回值也是通用指针。</li>
-<li>在C99标准中，使用<code>void *p = malloc(sizeof(int))</code>来为这种通用指针赋值从而分配内存被认为是安全的；如果你想要在堆上开辟一片数组，则可以使用<code>void *p = calloc(sizeof(int), 10);</code></li>
-</ul>
-<ol start="2">
-<li><strong><code>NULL</code></strong><ul>
-<li>空指针，未赋值的指针都指向NULL。</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>比如<code>int *p = NULL;</code>就是将p指向NULL。</li>
-</ul>
-<ol start="3">
-<li><p><strong><code>void *p = malloc(sizeof(int));</code></strong></p>
-<ul>
-<li>动态分配内存，返回一个指向void的指针，即通用指针。</li>
-</ul>
-</li>
-<li><p><strong><code>void *p = calloc(sizeof(int), 10);</code></strong></p>
-<ul>
-<li>动态分配内存，返回一个指向void的指针，即通用指针。</li>
-</ul>
-</li>
-</ol>
-<h1 id="mian函数传参"><a href="#mian函数传参" class="headerlink" title="mian函数传参"></a>mian函数传参</h1><ol>
-<li><strong><code>int main(int argc, char *argv[], char *envp[])</code></strong><ul>
-<li>argc是命令行参数的个数</li>
-<li>argv是命令行参数的数组。</li>
-<li>envp是环境变量的数组；可省略。</li>
-</ul>
-</li>
-</ol>
 
         
       </div>
@@ -311,25 +277,25 @@
 <nav id="article-nav">
   <a class="article-nav-btn left "
     
-      href="/2024/07/01/2024-7-2-03/"
-      title="函数指针"
+      href="/2024/07/03/2024-7-4-01/"
+      title="指针知识的补充"
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
       
-        函数指针
+        指针知识的补充
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2024/07/01/2024-7-4-02/"
-      title="动态内存申请"
+      href="/2024/07/01/2024-7-2-01/"
+      title="重生之C语言进阶"
      >
 
     <p class="title-text">
       
-        动态内存申请
+        重生之C语言进阶
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
