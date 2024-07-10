@@ -14,18 +14,26 @@
   
 
   
-  <title>在与有的小站</title>
+  <title>字符串处理函数 | 在与有的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="在与有的小站">
-<meta property="og:url" content="http://zaiyuyou.github.io/index.html">
+  <meta name="description" content="字符串处理函数目录 字符串处理函数 目录 字符串长度函数 strlen   字符串复制函数 strcpy 多个\0的情况   strncpy   字符串连接函数 strcat 多个\0的情况   strncat   字符串比较函数 strcmp strncmp   字符串查找函数 strchr strrchr   字符串匹配函数 strstr   字符串转换函数 atoi   字符串切割函数 st">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串处理函数">
+<meta property="og:url" content="http://zaiyuyou.github.io/2024/07/07/2024-7-8-02/index.html">
 <meta property="og:site_name" content="在与有的小站">
+<meta property="og:description" content="字符串处理函数目录 字符串处理函数 目录 字符串长度函数 strlen   字符串复制函数 strcpy 多个\0的情况   strncpy   字符串连接函数 strcat 多个\0的情况   strncat   字符串比较函数 strcmp strncmp   字符串查找函数 strchr strrchr   字符串匹配函数 strstr   字符串转换函数 atoi   字符串切割函数 st">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-10T03:01:23.904Z">
 <meta property="article:author" content="Zaiyuyou">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="开发技巧">
+<meta property="article:tag" content="字符串">
 <meta name="twitter:card" content="summary">
   
   
@@ -48,14 +56,14 @@
   
   
     
-<div id="banner" class=" is_home ">
+<div id="banner" class="">
   <img src="/img/titlebar.png" itemprop="image">
   <div id="banner-dim"></div>
 </div>
  
    
   <div id="main-grid" class="  ">
-    <div id="nav" class=" is_home "  >
+    <div id="nav" class=""  >
       <navbar id="navbar">
   <nav id="title-nav">
     <a href="/">
@@ -170,158 +178,7 @@
 </sidebar>
     </div>
     <div id="content-body">
-      
-   
-
-
-<article id="post-Welcome" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/10/Welcome/">欢迎！</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-10T03:01:23.904Z" itemprop="datePublished">2024-07-10</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-    未分类 
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            299 词 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <p>欢来到我的博客，在我认真学习的大学三年里，我发现无论是用平板手写笔记，还是onenote笔记或者是单纯的云笔记，都无法满足我的记录需要，比如笔记间的跳转引用什么的（就像写程序一样！），后来我发现Markdown虽然可以支持跳转，但是既然我都要填地址了，干啥不填网址呢？而且还可以随时随地访问查看，温故而知新~</p>
-<p>于是我决定用Hexo来搭建一个博客，并且用Github来托管，这样我就可以随时随地访问我的笔记&#x2F;博客了，而且还可以用Markdown来写博客并且到处跳转，简直完美！</p>
-<p>另外也算圆了一个小时候的目标吧~拥有一个看起来酷酷的网站。✅</p>
-<p>希望你也能从这里找到需要的知识，时间就是生命，开源万岁！</p>
-
-        
-      </div>
-
        
-        <footer class="article-footer">
-           
-        </footer>
-         
-    </div>
-    
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-   
-
-
-<article id="post-2024-7-8-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/07/2024-7-8-01/">内存的几种异常情况</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-07T16:00:00.000Z" itemprop="datePublished">2024-07-08</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            855 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <h1 id="内存溢出-Out-of-Memory"><a href="#内存溢出-Out-of-Memory" class="headerlink" title="内存溢出(Out of Memory)"></a>内存溢出(Out of Memory)</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>内存溢出指程序在申请内存时操作系统无法再向程序提供足够的内存空间，导致程序无法正常执行。结果是程序线程等待触发操作系统未响应，或者线程直接崩溃。</p>
-<hr>
-<h1 id="内存越界-内存踩踏"><a href="#内存越界-内存踩踏" class="headerlink" title="内存越界&#x2F;内存踩踏"></a>内存越界&#x2F;内存踩踏</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><p>内存越界是指程序在对指针或者数组等连续内存进行写操作时，没有考虑区域的大小而直接进行写操作，这样就导致其他区域的内存被写入数据，从而导致数据异常甚至程序崩溃</p>
-<h2 id="常见内存越界场景"><a href="#常见内存越界场景" class="headerlink" title="常见内存越界场景"></a>常见内存越界场景</h2><h3 id="1-数组越界"><a href="#1-数组越界" class="headerlink" title="1. 数组越界"></a>1. 数组越界</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">10</span>];</span><br><span class="line">a[<span class="number">10</span>]=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<p>即定义了一个长度为10的数组，但是访问了数组第11个元素，导致数组越界，访问了不属于该数组的内存空间，从而发生内存越界。</p>
-<h3 id="2-指针越界"><a href="#2-指针越界" class="headerlink" title="2. 指针越界"></a>2. 指针越界</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p;</span><br><span class="line">p=(<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="number">10</span>);</span><br><span class="line">*p=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<p>即定义了一个指针，但是没有给它分配内存空间，直接给指针赋值，导致指针越界，访问了不属于该指针的内存空间，从而发生内存越界。<br>&#96;</p>
-<hr>
-<h1 id="内存泄漏-Memory-Leak"><a href="#内存泄漏-Memory-Leak" class="headerlink" title="内存泄漏(Memory Leak)"></a>内存泄漏(Memory Leak)</h1><h2 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h2><p>申请的内存，首地址找不到了，再也没法使用了，也没法释放了，这种就被称为内存泄漏。</p>
-<h2 id="常见内存泄漏场景"><a href="#常见内存泄漏场景" class="headerlink" title="常见内存泄漏场景"></a>常见内存泄漏场景</h2><h3 id="1-指针赋值导致地址丢失"><a href="#1-指针赋值导致地址丢失" class="headerlink" title="1. 指针赋值导致地址丢失"></a>1. 指针赋值导致地址丢失</h3><p>即<a href="https://zaiyuyou.github.io/2024/07/03/2024-7-4-02/">动态内存申请函数</a>返回的指针被重新赋值，或者被其他数据覆盖而导致丢失了原来指向的内存空间地址。</p>
-<h3 id="2-定义函数申请空间后未释放"><a href="#2-定义函数申请空间后未释放" class="headerlink" title="2. 定义函数申请空间后未释放"></a>2. 定义函数申请空间后未释放</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">fun</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="type">char</span> *p;</span><br><span class="line">  p=(<span class="type">char</span> *)<span class="built_in">malloc</span>(<span class="number">100</span>);</span><br><span class="line">  <span class="comment">//接下来，可以用p指向的内存了</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="comment">//由于fun没有释放内存，导致每次调用都泄漏100字节</span></span><br><span class="line">  fun();</span><br><span class="line">  fun();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>即定义了函数中使用了<a href="https://zaiyuyou.github.io/2024-7-4-02">动态内存申请函数</a>，并且将返回的指针存在了栈区，但是在函数结束前并没有释放内存，这样就导致栈区的指针丢失，无法释放了。</p>
-<h3 id="3-经常申请但是很少释放-隐性泄漏"><a href="#3-经常申请但是很少释放-隐性泄漏" class="headerlink" title="3. 经常申请但是很少释放(隐性泄漏)"></a>3. 经常申请但是很少释放(隐性泄漏)</h3><p>即申请内存的频率很高，但是很多情况下这些内存无法得到释放，被长时间占用，并且一直申请新的内存空间，这样的程序在长时间运行之后也会内存溢出从而崩溃。</p>
-<h2 id="内存泄漏的危害"><a href="#内存泄漏的危害" class="headerlink" title="内存泄漏的危害"></a>内存泄漏的危害</h2><p>长时间泄漏内存会导致程序<a href="#%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BAout-of-memory">内存溢出</a></p>
-
-        
-      </div>
-
-       
-        <footer class="article-footer">
-           
-        </footer>
-         
-    </div>
-    
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-   
 
 
 <article id="post-2024-7-8-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
@@ -336,8 +193,8 @@
   <div class="main-title-dot"></div>
   
     
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/07/2024-7-8-02/">字符串处理函数</a>
+      <h1 class="p-name article-title" itemprop="headline name">
+        字符串处理函数
       </h1>
     
   
@@ -568,494 +425,38 @@
      
   </div>
   
-</article>
-
-
-
-
-
-
-
-   
-
-
-<article id="post-2024-7-4-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
     
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
+<nav id="article-nav">
+  <a class="article-nav-btn left "
     
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/03/2024-7-4-01/">指针知识的补充</a>
-      </h1>
+      href="/2024/07/07/2024-7-8-01/"
+      title="内存的几种异常情况"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        内存的几种异常情况
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
     
-  
-</div>
+      href="/2024/07/03/2024-7-4-01/"
+      title="指针知识的补充"
+     >
 
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-03T16:00:00.000Z" itemprop="datePublished">2024-07-04</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            800 词 
-          </div>
-        </div>
+    <p class="title-text">
+      
+        指针知识的补充
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
 
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <h1 id="容易混淆的指针"><a href="#容易混淆的指针" class="headerlink" title="容易混淆的指针"></a>容易混淆的指针</h1><hr>
-<h2 id="指针数组和数组指针"><a href="#指针数组和数组指针" class="headerlink" title="指针数组和数组指针"></a>指针数组和数组指针</h2><ol>
-<li><p><strong><code>int *a[10]</code></strong></p>
-<ul>
-<li>指针数组，本质是数组，数组中的元素是int类型的指针。它加一相当于下标加一。常用于保存字符串。</li>
-</ul>
-</li>
-<li><p><strong><code>int (*a)[10]</code></strong></p>
-<ul>
-<li>数组指针，指针指向了一个数组入口，本质是一个指针。它加一的话就是指向数组末尾后的数据。常用于作为二维数组的行指针。</li>
-</ul>
-</li>
-</ol>
-<p>在<a href="https://zaiyuyou.github.io/2024/07/01/2024-7-2-03/">前文</a>中有提到，带括号的都是指针，不带括号的就是各种指针可指向的数据或者函数。</p>
-<ol>
-<li><strong><code>int **p</code></strong><ul>
-<li>二级指针，常用于代表指针数组，将指针数组传入函数中</li>
-</ul>
-</li>
-</ol>
-<h2 id="指针函数和函数指针"><a href="#指针函数和函数指针" class="headerlink" title="指针函数和函数指针"></a>指针函数和函数指针</h2><ol>
-<li><p><strong><code>int *fun(void)</code></strong></p>
-<ul>
-<li>指针函数，返回一个指向int的指针。</li>
-</ul>
-</li>
-<li><p><strong><code>int (*fun)(void)</code></strong></p>
-<ul>
-<li>函数指针，指向一个返回int的函数。方便使用函数指针变量将函数作为参数传入。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h1 id="一些特殊的指针"><a href="#一些特殊的指针" class="headerlink" title="一些特殊的指针"></a>一些特殊的指针</h1><ol>
-<li><strong><code>void *p</code></strong><ul>
-<li><strong>表示通用指针，或者未定义类型的指针，任何类型的指针都可以赋值给它。</strong></li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>比如常用的memset函数<code>void *memset(void *s, int c, size_t n);</code>功能就是将s指向的内存的前n个字节全部用c赋值。这里就用了通用指针s，且返回值也是通用指针。</li>
-<li>在C99标准中，使用<code>void *p = malloc(sizeof(int))</code>来为这种通用指针赋值从而分配内存被认为是安全的；如果你想要在堆上开辟一片数组，则可以使用<code>void *p = calloc(sizeof(int), 10);</code></li>
-</ul>
-<ol start="2">
-<li><strong><code>NULL</code></strong><ul>
-<li>空指针，未赋值的指针都指向NULL。</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>比如<code>int *p = NULL;</code>就是将p指向NULL。</li>
-</ul>
-<ol start="3">
-<li><p><strong><code>void *p = malloc(sizeof(int));</code></strong></p>
-<ul>
-<li>动态分配内存，返回一个指向void的指针，即通用指针。</li>
-</ul>
-</li>
-<li><p><strong><code>void *p = calloc(sizeof(int), 10);</code></strong></p>
-<ul>
-<li>动态分配内存，返回一个指向void的指针，即通用指针。</li>
-</ul>
-</li>
-</ol>
-<h1 id="mian函数传参"><a href="#mian函数传参" class="headerlink" title="mian函数传参"></a>mian函数传参</h1><ol>
-<li><strong><code>int main(int argc, char *argv[], char *envp[])</code></strong><ul>
-<li>argc是命令行参数的个数</li>
-<li>argv是命令行参数的数组。</li>
-<li>envp是环境变量的数组；可省略。</li>
-</ul>
-</li>
-</ol>
 
-        
-      </div>
-
-       
-        <footer class="article-footer">
-           
-        </footer>
-         
-    </div>
-    
-     
-  </div>
   
 </article>
-
-
-
-
-
-
-
-   
-
-
-<article id="post-2024-7-4-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/03/2024-7-4-02/">动态内存申请</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-03T16:00:00.000Z" itemprop="datePublished">2024-07-04</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.6k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>动态内存申请实际上是在堆区开辟内存空间，而堆区空间手动开辟，手动释放，不像栈区由操作系统自动维护。同时，很多时候我们需要的内存空间取决于实际输入的数据，所以我们就需要动态分配内存了。</p>
-<h2 id="动态分配函数"><a href="#动态分配函数" class="headerlink" title="动态分配函数"></a>动态分配函数</h2><ul>
-<li><strong>注意</strong><br><em>动态内存分配函数的使用需要注意以下几点：</em><ul>
-<li>一般用<code>memset</code>初始化</li>
-<li><strong>调用函数后一定要判断一下是否申请成功</strong></li>
-<li>每次调用函数申请的空间是连续的，但是多次调用函数申请的空间不一定连续。</li>
-<li>返回的是<code>void *</code>指针，在调用函数时，需要强制类型转换成我们需要的类型。<strong>即-养成调用函数前面接强转的好习惯。</strong></li>
-<li>内存空间使用完之后一定要释放<br>，否则会造成<a href="">内存泄漏</a>。</li>
-</ul>
-</li>
-</ul>
-<h3 id="malloc函数"><a href="#malloc函数" class="headerlink" title="malloc函数"></a>malloc函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> *<span class="title function_">malloc</span><span class="params">(<span class="type">size_t</span> size)</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  在堆区开辟指定长度的连续内存空间</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  size指定开辟内存空间的大小，单位为字节</span></span><br><span class="line"><span class="comment">  size的类型size_t本质是unsigned int的typdef</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回指向开辟内存空间首地址的指针(void *)，</span></span><br><span class="line"><span class="comment">  如果开辟失败，返回NULL</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在<a target="_blank" rel="noopener" href="https://blog.csdn.net/panjiapengfly/article/details/102665381"><strong>堆区</strong></a>中分配一块长度为size字节的连续存储空间；并返回指向该存储空间首地址的指针，分配失败时，返回NULL。</li>
-</ul>
-<h3 id="calloc函数"><a href="#calloc函数" class="headerlink" title="calloc函数"></a>calloc函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> *<span class="title function_">calloc</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> n, <span class="type">size_t</span> size)</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  在堆区开辟指定长度的连续内存空间，并初始化为0</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  n指定开辟内存空间的个数</span></span><br><span class="line"><span class="comment">  size指定开辟内存空间的大小，单位为字节</span></span><br><span class="line"><span class="comment">  size的类型size_t本质是unsigned int的typdef</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回指向开辟内存空间首地址的指针(void *)，</span></span><br><span class="line"><span class="comment">  如果开辟失败，返回NULL</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>在堆区中分配一块<strong>长度为n×size字节的连续存储空间</strong>；并返回指向该存储空间首地址的指针；分配失败时，返回NULL。  </li>
-<li>和<code>malloc</code>只分布内存不负责初始化不同，<code>calloc</code>分配的空间被初始化为0</li>
-</ul>
-<h3 id="realloc函数"><a href="#realloc函数" class="headerlink" title="realloc函数"></a>realloc函数</h3><p>调用<code>malloc</code>和<code>calloc</code>函数单次申请的内存是连续的，两次申请的两块内存不一定连续。为了满足这种需求，即我先用<code>malloc</code>或者<code>calloc</code>申请了一块内存，我还想在原先内存的基础上挨着申请内存。或者我开始时候使用<code>malloc</code>或<code>calloc</code>申请了一块内存，我想释放后边的一部分未使用的内存。为了解决这个问题，发明了<code>realloc</code>这个函数</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> *<span class="title function_">realloc</span><span class="params">(<span class="type">void</span> *ptr, <span class="type">size_t</span> newsize)</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  重新分配内存空间,调整已分配内存空间的大小</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  ptr指向要重新分配内存空间的指针</span></span><br><span class="line"><span class="comment">  newsize指定重新分配内存空间的大小，单位为字节</span></span><br><span class="line"><span class="comment">  newsize的类型size_t本质是unsigned int的typdef</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回指向重新分配内存空间首地址的指针(void *)，</span></span><br><span class="line"><span class="comment">  如果分配失败，返回NULL</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如果传入的指针的内存空间<br>后面有足够的空间，则直接调整大小，并返回指针；</li>
-<li>如果传入的指针的内存空间后面没有足够的空间，则重新开辟一块大小为<code>newsize</code>字节的内存空间，并将原内存空间的内容复制到新内存空间中，并返回新内存空间的指针；</li>
-<li>如果传入的指针为NULL，则相当于调用<code>malloc</code>函数；</li>
-<li>如果<code>newsize</code>小于传入的指针指向的内存空间，则只调整大小，不改变内容。</li>
-</ul>
-<h3 id="free函数"><a href="#free函数" class="headerlink" title="free函数"></a>free函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">free</span><span class="params">(<span class="type">void</span> *ptr)</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：释放堆区空间</span></span><br><span class="line"><span class="comment">参数：ptr指向要释放的内存空间</span></span><br><span class="line"><span class="comment">返回值：无</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>释放指针指向的内存空间</li>
-<li><code>ptr</code>必须是<code>malloc</code>、<code>calloc</code>、<code>realloc</code>函数返回的指针，否则结果是未定义的。</li>
-</ul>
-
-        
-      </div>
-
-       
-        <footer class="article-footer">
-           
-        </footer>
-         
-    </div>
-    
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-   
-
-
-<article id="post-2024-7-2-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/01/2024-7-2-01/">重生之C语言进阶</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-01T16:00:00.000Z" itemprop="datePublished">2024-07-02</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            109 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
-<h2 id="大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。-索引"><a href="#大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。-索引" class="headerlink" title="大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。## 索引"></a>大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。<br>以下是我的学习笔记索引。<br>## 索引</h2>
-        
-      </div>
-
-       
-        <footer class="article-footer">
-           
-        </footer>
-         
-    </div>
-    
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-   
-
-
-<article id="post-2024-7-2-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/01/2024-7-2-02/">指针函数</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-01T16:00:00.000Z" itemprop="datePublished">2024-07-02</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            579 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <h2 id="指针函数"><a href="#指针函数" class="headerlink" title="指针函数"></a>指针函数</h2><hr>
-<h3 id="指针函数的定义"><a href="#指针函数的定义" class="headerlink" title="指针函数的定义"></a>指针函数的定义</h3><ul>
-<li>本质是一个函数</li>
-<li>指针作为函数的返回值</li>
-</ul>
-<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">char</span> * <span class="title function_">func</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span> *p = <span class="string">&quot;123&quot;</span>;<span class="comment">//创建变量123</span></span><br><span class="line">    <span class="keyword">return</span> p;<span class="comment">//返回p的地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="指针函数的坑"><a href="#指针函数的坑" class="headerlink" title="指针函数的坑"></a>指针函数的坑</h4><p> <strong>这个指针函数返回的指针指向的数据一定是字符串”123”吗？</strong></p>
-<p>如果让刚学完C语言的我回答，我可能会从语气中听出一些端倪，但是要我说个原因倒是不好描述。不过现在回过头来看，底层知识的清明就可以很快找到问题的关键了。</p>
-<p>函数对应线程，线程拥有自己的栈空间(操作系统的逻辑内存)，函数内的变量自然也是存储在栈空间中的。当函数完成他的使命之后，操作系统就会把栈空间释放掉，<strong>而栈空间中的变量自然也就被释放掉了</strong>。</p>
-<p>这会带来什么呢？如果还记得指针的意义的话，就知道指针存的是地址，而不是数据，那么既然栈空间的数据都释放掉了，返回的指针指向的内存自然是没有意义的。或者说会获得一个“脏值”</p>
-<p>ok，那么怎么解决这个问题呢？<br>难道要在外部调用这个函数的线程上就创建这个值吗？这明显不符合函数的要求和目的</p>
-<p>其实很简单，static一下就能让操作系统为你的变量保留内存地址了。这也是static的“主要用途”。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">char</span> * <span class="title function_">func</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">char</span> *p = <span class="string">&quot;123&quot;</span>;<span class="comment">//创建变量123</span></span><br><span class="line">    <span class="keyword">return</span> p;<span class="comment">//返回p的地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-        
-      </div>
-
-       
-        <footer class="article-footer">
-           
-        </footer>
-         
-    </div>
-    
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-   
-
-
-<article id="post-2024-7-2-03" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/01/2024-7-2-03/">函数指针</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-01T16:00:00.000Z" itemprop="datePublished">2024-07-02</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <h2 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h2><hr>
-<h3 id="函数指针的定义"><a href="#函数指针的定义" class="headerlink" title="函数指针的定义"></a>函数指针的定义</h3><ul>
-<li>本质是一个指针</li>
-<li>指向函数的指针</li>
-</ul>
-<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>OK啊，结合计算机组成、单片机系统基础、操作系统。<br>不难知道，无论是目前PC的冯诺依曼架构，还是单片机的哈佛架构，程序都是需要空间保存的，只不过两个架构保存的地方不一样而已。</p>
-<p>那么，函数当然有自己的指针啦，不然你汇编JMP怎么知道跳到哪一行。</p>
-<p>C语言也差不多，C语言中函数的名字就是函数的首地址（入口地址），那么我定义一个指针指向这里当然是一个允许的操作啦~</p>
-<p>而这种内容存的是函数入口地址的指针变量，我们就叫它函数指针用来和其他的数据指针区别一下。</p>
-<p>顺便说一下，<strong>这种“存入口地址”或者“存起始地址”的指针，往往定义的时候喜欢用 <code>类型 + (*指针名)</code>定义</strong>，数组指针也这样，函数指针也这样；不加括号就是反过来指针数组，指针函数。(开始晕了)</p>
-<hr>
-<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">max</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">min</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个传参为两个int，返回值为int的函数指针。</span></span><br><span class="line"><span class="type">int</span> (*p)(<span class="type">int</span>, <span class="type">int</span>);</span><br></pre></td></tr></table></figure>
-
-<p>这样就相当于给两个函数都抽象出来了,那么是不是可以做点什么呢<a href="####%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E7%9A%84%E5%A6%99%E7%94%A8">……</a></p>
-<h4 id="函数指针的调用"><a href="#函数指针的调用" class="headerlink" title="函数指针的调用"></a>函数指针的调用</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接上文代码</span></span><br><span class="line"></span><br><span class="line">p = max;</span><br><span class="line">num = (*p)(<span class="number">3</span>,<span class="number">5</span>);</span><br><span class="line">num = p(<span class="number">3</span>,<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
-
-
-<p>  函数指针的调用可以省略括号</p>
-<hr>
-<h2 id="函数指针数组"><a href="#函数指针数组" class="headerlink" title="函数指针数组"></a>函数指针数组</h2><p>函数指针常用常用于将函数作为参数传递给另一个函数，这个函数就被称为<a target="_blank" rel="noopener" href="https://bbs.huaweicloud.com/blogs/273798">回调函数</a></p>
-<h4 id="函数指针数组的妙用"><a href="#函数指针数组的妙用" class="headerlink" title="函数指针数组的妙用"></a>函数指针数组的妙用</h4><p>当然是用函数指针把功能类似编个组放一起啦！(相当于建立函数库)这样在使用回调函数的时候甚至可以用偏移量来决定调用的函数，就不需要Switch来路由函数了。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">first</span><span class="params">(<span class="type">char</span> a)</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">second</span><span class="params">(<span class="type">char</span> a)</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">third</span><span class="params">(<span class="type">char</span> a)</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个函数指针数组</span></span><br><span class="line"><span class="type">int</span> (*p[])(<span class="type">char</span>) = &#123;first,second,third</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n , b;</span><br><span class="line"></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d, %d&quot;</span>,&amp;n, &amp;b);</span><br><span class="line"></span><br><span class="line">p[n%<span class="number">3</span>](b);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<hr>
-<h4 id="顺便复习一下指针为什么要有类型？"><a href="#顺便复习一下指针为什么要有类型？" class="headerlink" title="顺便复习一下指针为什么要有类型？"></a>顺便复习一下指针为什么要有类型？</h4><ul>
-<li>防止对内存的越界操作<br><em>(我改一个2B的变量，结果指针的类型是4B的类型，你猜猜多出来的2B的数据写哪去了？&#x2F;&#x2F;操作系统：阿米诺斯，编译器你怎么给这操作允许了，给我栈区都干穿了，线程都干开线了。)</em></li>
-</ul>
-
-        
-      </div>
-
-       
-        <footer class="article-footer">
-           
-        </footer>
-         
-    </div>
-    
-     
-  </div>
-  
-</article>
-
-
-
 
 
 
