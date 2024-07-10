@@ -1,0 +1,3 @@
+https://cpp.sh/?source=%23include+%3cstdio.h%3e%0a++%23include+%3cstring.h%3e%0a%0a++int+main()+%7b%0a++++++char+dest%5b50%5d+%3d+%22Hello%5c0World%22%3b%0a++++++char+src%5b20%5d+%3d+%22+everyone!%22%3b%0a%0a++++++strcpy(dest%2c+src)%3b%0a%0a++++++printf(%22%25s%5cn%22%2c+dest)%3b%0a++%7d
+
+  https://cpp.sh/?source=%2F%2F+Example+program%0A%23include+%3Ciostream%3E%0A%23include+%3Cstring%3E%0A%0Aint+main()%0A%7B%0A++std%3A%3Astring+name%3B%0A++std%3A%3Acout+%3C%3C+%22What+is+your+name%3F+%22%3B%0A++getline+(std%3A%3Acin%2C+name)%3B%0A++std%3A%3Acout+%3C%3C+%22Hello%2C+%22+%3C%3C+name+%3C%3C+%22!%5Cn%22%3B%0A%7D
