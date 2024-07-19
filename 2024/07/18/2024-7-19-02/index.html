@@ -23,12 +23,12 @@
   <meta name="description" content="位段C语言允许在一个结构体中以位为单位来指定其成员所占内存长度，这种以位为单位的成员称为“位段”或称“位段”(bit field)。利用位段能够用较少的位数存储数据。。unsigned int a:1;表示a占1位Bit表示数字。位段成员除了可以指定为unsigned int整形还可以指定为字符char 12345typedef struct&#123;    unsigned int a:1;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="位段">
-<meta property="og:url" content="http://zaiyuyou.github.io/2024/07/10/2024-7-19-02/index.html">
+<meta property="og:url" content="http://zaiyuyou.github.io/2024/07/18/2024-7-19-02/index.html">
 <meta property="og:site_name" content="在与有的小站">
 <meta property="og:description" content="位段C语言允许在一个结构体中以位为单位来指定其成员所占内存长度，这种以位为单位的成员称为“位段”或称“位段”(bit field)。利用位段能够用较少的位数存储数据。。unsigned int a:1;表示a占1位Bit表示数字。位段成员除了可以指定为unsigned int整形还可以指定为字符char 12345typedef struct&#123;    unsigned int a:1;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-19T00:39:16.055Z">
+<meta property="article:published_time" content="2024-07-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-19T00:47:14.546Z">
 <meta property="article:author" content="Zaiyuyou">
 <meta property="article:tag" content="开发技巧">
 <meta property="article:tag" content="笔记">
@@ -201,7 +201,7 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-10T16:00:00.000Z" itemprop="datePublished">2024-07-11</time>
+  <time class="dt-published" datetime="2024-07-18T16:00:00.000Z" itemprop="datePublished">2024-07-19</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -266,7 +266,7 @@
 </tr>
 </tbody></table>
 <p><strong>测试代码：</strong> <strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include%3Cstdio.h%3E%0D%0Astruct+temp1%7B%0D%0A++++char+a:7;%0D%0A++++char+b:7;%0D%0A++++char+c:2;%0D%0A%7Dtemp1;%0D%0A%0D%0Aint+main()%7B%0D%0A++++printf(%22%25d%5Cn%22,sizeof(temp1));%0D%0A++++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">temp1</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> a:<span class="number">7</span>;</span><br><span class="line">    <span class="type">short</span> b:<span class="number">7</span>;</span><br><span class="line">    <span class="type">char</span> c:<span class="number">2</span>;</span><br><span class="line">&#125;temp1;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="keyword">sizeof</span>(temp1));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">temp1</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> a:<span class="number">7</span>;</span><br><span class="line">    <span class="type">char</span> b:<span class="number">7</span>;</span><br><span class="line">    <span class="type">char</span> c:<span class="number">2</span>;</span><br><span class="line">&#125;temp1;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="keyword">sizeof</span>(temp1));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>输出结果：</strong></p>
 <figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
@@ -408,7 +408,7 @@
 <nav id="article-nav">
   <a class="article-nav-btn left "
     
-      href="/2024/07/10/2024-7-19-01/"
+      href="/2024/07/18/2024-7-19-01/"
       title="共用体"
      >
     <i class="fa-solid fa-angle-left"></i>
@@ -420,13 +420,13 @@
   </a>
   <a class="article-nav-btn right "
     
-      href="/2024/07/10/2024-7-8-02/"
-      title="字符串处理函数"
+      href="/2024/07/12/2024-7-13-01/"
+      title="结构体以及应用"
      >
 
     <p class="title-text">
       
-        字符串处理函数
+        结构体以及应用
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
