@@ -14,26 +14,18 @@
   
 
   
-  <title>函数指针 | 在与有的小站</title>
+  <title>在与有的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="函数指针 函数指针的定义 本质是一个指针 指向函数的指针  引言OK啊，结合计算机组成、单片机系统基础、操作系统。不难知道，无论是目前PC的冯诺依曼架构，还是单片机的哈佛架构，程序都是需要空间保存的，只不过两个架构保存的地方不一样而已。 那么，函数当然有自己的指针啦，不然你汇编JMP怎么知道跳到哪一行。 C语言也差不多，C语言中函数的名字就是函数的首地址（入口地址），那么我定义一个指针指向这里当然">
-<meta property="og:type" content="article">
-<meta property="og:title" content="函数指针">
-<meta property="og:url" content="http://zaiyuyou.github.io/2024/07/01/2024-7-2-03/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="在与有的小站">
+<meta property="og:url" content="http://zaiyuyou.github.io/page/2/index.html">
 <meta property="og:site_name" content="在与有的小站">
-<meta property="og:description" content="函数指针 函数指针的定义 本质是一个指针 指向函数的指针  引言OK啊，结合计算机组成、单片机系统基础、操作系统。不难知道，无论是目前PC的冯诺依曼架构，还是单片机的哈佛架构，程序都是需要空间保存的，只不过两个架构保存的地方不一样而已。 那么，函数当然有自己的指针啦，不然你汇编JMP怎么知道跳到哪一行。 C语言也差不多，C语言中函数的名字就是函数的首地址（入口地址），那么我定义一个指针指向这里当然">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-19T00:39:16.055Z">
 <meta property="article:author" content="Zaiyuyou">
-<meta property="article:tag" content="开发技巧">
-<meta property="article:tag" content="笔记">
-<meta property="article:tag" content="C">
-<meta property="article:tag" content="指针">
 <meta name="twitter:card" content="summary">
   
   
@@ -56,14 +48,14 @@
   
   
     
-<div id="banner" class="">
+<div id="banner" class=" is_home ">
   <img src="/img/titlebar.png" itemprop="image">
   <div id="banner-dim"></div>
 </div>
  
    
   <div id="main-grid" class="  ">
-    <div id="nav" class=""  >
+    <div id="nav" class=" is_home "  >
       <navbar id="navbar">
   <nav id="title-nav">
     <a href="/">
@@ -178,7 +170,75 @@
 </sidebar>
     </div>
     <div id="content-body">
+      
+   
+
+
+<article id="post-2024-7-2-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/07/01/2024-7-2-01/">重生之C语言进阶</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-01T16:00:00.000Z" itemprop="datePublished">2024-07-02</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            109 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
+<h2 id="大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。-索引"><a href="#大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。-索引" class="headerlink" title="大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。## 索引"></a>大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。<br>以下是我的学习笔记索引。<br>## 索引</h2>
+        
+      </div>
+
        
+        <footer class="article-footer">
+           
+        </footer>
+         
+    </div>
+    
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+   
 
 
 <article id="post-2024-7-2-03" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
@@ -193,8 +253,8 @@
   <div class="main-title-dot"></div>
   
     
-      <h1 class="p-name article-title" itemprop="headline name">
-        函数指针
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/07/01/2024-7-2-03/">函数指针</a>
       </h1>
     
   
@@ -264,37 +324,27 @@
      
   </div>
   
-    
-<nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2024/07/01/2024-7-2-01/"
-      title="重生之C语言进阶"
-     >
-    <i class="fa-solid fa-angle-left"></i>
-    <p class="title-text">
-      
-        重生之C语言进阶
-        
-    </p>
-  </a>
-  <a class="article-nav-btn right  disabled "
-     >
-
-    <p class="title-text">
-        
-    </p>
-    <i class="fa-solid fa-angle-right"></i>
-  </a>
-</nav>
-
-
-  
 </article>
 
 
 
 
+
+
+
+
+  <nav id="page-nav">
+    <!-- 在第二页时 page.prev_link 不知为何无法返回正确的链接 -->
+    <a id="prev-btn" class="page-nav-btn " href=" /  ">
+      <i class="fa-solid fa-angle-left"></i>
+    </a>
+    <div id="num-bar">
+      <a class="page-number" href="/">1</a><span class="page-number current">2</span>  
+    </div>
+    <a id="next-btn" class="page-nav-btn disabled" href="/">
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+  </nav>
 
 
     </div>

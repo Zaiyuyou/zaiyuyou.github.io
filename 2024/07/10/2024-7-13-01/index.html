@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>结构体以及应用 | 在与有的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="结构体概念结构体是一种构造类型，它是由若干不同类型的数据项组合而成的一个数据集合。 描述一组具有相同数据的有序集合，用于处理大量相同类型的数据运算，有时我们需要将不同类型的数据组合成一个有机的整体方便引用。 类似与面向对象编程中定义一个类以及其属性，不过C语言中不能在结构体中定义函数，不过可以使用函数指针实现类似于面向对象编程的方法来调用类的函数。 结构体类型和变量的定义定义方法1：先定义结构体类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="结构体以及应用">
+<meta property="og:url" content="http://zaiyuyou.github.io/2024/07/10/2024-7-13-01/index.html">
+<meta property="og:site_name" content="在与有的小站">
+<meta property="og:description" content="结构体概念结构体是一种构造类型，它是由若干不同类型的数据项组合而成的一个数据集合。 描述一组具有相同数据的有序集合，用于处理大量相同类型的数据运算，有时我们需要将不同类型的数据组合成一个有机的整体方便引用。 类似与面向对象编程中定义一个类以及其属性，不过C语言中不能在结构体中定义函数，不过可以使用函数指针实现类似于面向对象编程的方法来调用类的函数。 结构体类型和变量的定义定义方法1：先定义结构体类">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-19T00:39:16.055Z">
+<meta property="article:author" content="Zaiyuyou">
+<meta property="article:tag" content="开发技巧">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/img/titlebar.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>在与有的小站 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">主页</a>
+    
+      <a class="main-nav-link" href="/archives">归档</a>
+    
+      <a class="main-nav-link" href="/about">关于</a>
+    
+      <a class="main-nav-link" href="/tags">标签</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">主页</a>
+    
+      <a class="nav-dropdown-link" href="/archives">归档</a>
+    
+      <a class="nav-dropdown-link" href="/about">关于</a>
+    
+      <a class="nav-dropdown-link" href="/tags">标签</a>
+    
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/img/head.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Zaiyuyou </div>
+      <div class="dot"></div>
+      <div class="subtitle">随心遂意-常习常喜-拾慧时惠 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/Zaiyuyou/" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">
+                编程
+                <div class="category-count">11</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-2024-7-13-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        结构体以及应用
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-10T16:00:00.000Z" itemprop="datePublished">2024-07-11</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            4.1k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>结构体是一种构造类型，它是由若干不同类型的数据项组合而成的一个数据集合。</p>
+<p>描述一组具有相同数据的有序集合，用于处理大量相同类型的数据运算，有时我们需要将不同类型的数据组合成一个有机的整体方便引用。</p>
+<p>类似与面向对象编程中定义一个类以及其属性，不过C语言中不能在结构体中定义函数，不过可以使用函数指针实现类似于面向对象编程的方法来调用类的函数。</p>
+<h2 id="结构体类型和变量的定义"><a href="#结构体类型和变量的定义" class="headerlink" title="结构体类型和变量的定义"></a>结构体类型和变量的定义</h2><h3 id="定义方法1：先定义结构体类型，再定义变量。"><a href="#定义方法1：先定义结构体类型，再定义变量。" class="headerlink" title="定义方法1：先定义结构体类型，再定义变量。"></a>定义方法1：先定义结构体类型，再定义变量。</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义类型</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//定义变量</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span> <span class="title">Bob</span>,<span class="title">Lucy</span>,...,<span class="title">Tom</span>;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="定义变量技巧：使用typedef在定义结构体类型的时候初始化一个新的类型名。"><a href="#定义变量技巧：使用typedef在定义结构体类型的时候初始化一个新的类型名。" class="headerlink" title="定义变量技巧：使用typedef在定义结构体类型的时候初始化一个新的类型名。"></a>定义变量技巧：使用typedef在定义结构体类型的时候初始化一个新的类型名。</h4><p>很多时候我们在创建结构体变量的时候常常需要使用<a href="#%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%951%E5%85%88%E5%AE%9A%E4%B9%89%E7%BB%93%E6%9E%84%E4%BD%93%E7%B1%BB%E5%9E%8B%E5%86%8D%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F">定义方法1</a>来创建变量，但是冗长的定义语句会降低代码的可读性，这时我们就可以用typedef来将一种结构体类型封装为一个变量类型，这样我们就可以像定义普通变量一样来定义结构体变量了。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用Stu来定义结构体变量</span></span><br><span class="line">Stu Bob,Lucy,...,Tom;</span><br></pre></td></tr></table></figure>
+
+<h3 id="定义方法2：在定义结构体类型的时候，顺便定义一些结构体变量。"><a href="#定义方法2：在定义结构体类型的时候，顺便定义一些结构体变量。" class="headerlink" title="定义方法2：在定义结构体类型的时候，顺便定义一些结构体变量。"></a>定义方法2：在定义结构体类型的时候，顺便定义一些结构体变量。</h3><p>如果这种结构体类型是全局类型，那么使用这种方法定义结构体变量也是全局变量了。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义类型</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;Bob,Lucy,...,Tom;<span class="comment">//定义变量</span></span><br></pre></td></tr></table></figure>
+
+<p>另外，使用这种方法还可定义一些<code>无名结构体变量</code>，无名结构体变量使用这种方法在定义类型后定义变量。<br>无名结构体类型无法使用第一种方法定义变量。<br>无名结构体定义无名结构体时必须定义该结构体类型的<strong>至少一个变量</strong>。<br><strong>无名结构体常用于避免相同类型的结构体的重复定义。</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义无名结构体类型</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;Bob,Lucy,...,Tom;<span class="comment">//定义变量</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="结构体变量的操作"><a href="#结构体变量的操作" class="headerlink" title="结构体变量的操作"></a>结构体变量的操作</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>结构体初始化可以一次性初始化多个属性，但是要按照结构体类型的定义顺序来初始化变量。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line">Stu Bob = &#123;<span class="string">&quot;Bob&quot;</span>,<span class="number">18</span>,<span class="number">95.5</span>&#125;;<span class="comment">//定义结构体变量并且初始化</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="访问结构体变量"><a href="#访问结构体变量" class="headerlink" title="访问结构体变量"></a>访问结构体变量</h3><p>使用<code>.</code>运算符来访问结构体变量中的属性。<br>也可以使用结构体指针来访问结构体变量中的属性。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>,Bob.name);<span class="comment">//使用结构体变量名来访问结构体变量中的属性</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>,(*Bob).name);<span class="comment">//使用结构体指针来访问结构体变量中的属性</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="结构体嵌套"><a href="#结构体嵌套" class="headerlink" title="结构体嵌套"></a>结构体嵌套</h2><p>结构体可以嵌套定义，也可以嵌套初始化。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Teacher</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    Stu stu;</span><br><span class="line">&#125;Tea;</span><br><span class="line"></span><br><span class="line">Tea tea = &#123;<span class="string">&quot;Teacher&quot;</span>,&#123;<span class="string">&quot;Bob&quot;</span>,<span class="number">18</span>,<span class="number">95.5</span>&#125;&#125;;<span class="comment">//定义结构体变量并且初始化</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="结构体数组"><a href="#结构体数组" class="headerlink" title="结构体数组"></a>结构体数组</h2><p>结构体可以定义数组，结构体数组可以用于存储一组相同类型的数据。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line">Stu stu[<span class="number">10</span>];<span class="comment">//定义结构体数组</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="结构体与指针"><a href="#结构体与指针" class="headerlink" title="结构体与指针"></a>结构体与指针</h2><h3 id="结构体指针"><a href="#结构体指针" class="headerlink" title="结构体指针"></a>结构体指针</h3><p>结构体指针可以指向结构体变量，也可以指向结构体数组。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line">Stu stu[<span class="number">10</span>];<span class="comment">//定义结构体数组</span></span><br><span class="line">Stu *p = stu;<span class="comment">//定义结构体指针并指向结构体数组</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="结构体指针访问结构体变量"><a href="#结构体指针访问结构体变量" class="headerlink" title="结构体指针访问结构体变量"></a>结构体指针访问结构体变量</h3><p>使用<code>-&gt;</code>运算符来访问结构体指针指向的结构体变量中的属性。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>,p-&gt;name);<span class="comment">//使用结构体指针来访问结构体变量中的属性</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="结构体指针作为函数参数"><a href="#结构体指针作为函数参数" class="headerlink" title="结构体指针作为函数参数"></a>结构体指针作为函数参数</h3><p>结构体指针可以作为函数的参数，这样就可以在函数内部修改结构体变量的值了。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">getStu</span><span class="params">(Stu *stu)</span>&#123;</span><br><span class="line">    stu-&gt;age = <span class="number">18</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="结构体内指针成员"><a href="#结构体内指针成员" class="headerlink" title="结构体内指针成员"></a>结构体内指针成员</h3><p>在定义结构体类型的时候，可以在结构体内部定义指针类型。方便引用。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">    <span class="type">char</span> *p;</span><br><span class="line">&#125;Stu;</span><br></pre></td></tr></table></figure>
+
+<p>使用结构体内成员的函数指针连接内部函数实现面向对象写法</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">int</span> id;</span><br><span class="line">    <span class="type">void</span> (*stuIDF)(<span class="keyword">struct</span> Student s);</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">getStuName</span><span class="params">(<span class="keyword">struct</span> Student s)</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>,s.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">getStuID</span><span class="params">(<span class="keyword">struct</span> Student s)</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,s.id);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    Stu stu = &#123;<span class="string">&quot;Bob&quot;</span>,<span class="number">18</span>,<span class="number">333111000</span>,getStuName&#125;;</span><br><span class="line">    stu.stuIDF(stu);</span><br><span class="line"></span><br><span class="line">    stu.stuIDF = getStuID;</span><br><span class="line">    stu.stuIDF(stu);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="结构体与函数"><a href="#结构体与函数" class="headerlink" title="结构体与函数"></a>结构体与函数</h2><p>结构体可以作为函数的参数，也可以作为函数的返回值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line">Stu <span class="title function_">getStu</span><span class="params">(Stu stu)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> stu;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="结构体与文件"><a href="#结构体与文件" class="headerlink" title="结构体与文件"></a>结构体与文件</h2><p>结构体可以存储到文件中，也可以从文件中读取结构体数据。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line">Stu stu;</span><br><span class="line">FILE *fp = fopen(<span class="string">&quot;data.txt&quot;</span>,<span class="string">&quot;wb&quot;</span>);</span><br><span class="line">fwrite(&amp;stu,<span class="keyword">sizeof</span>(Stu),<span class="number">1</span>,fp);</span><br><span class="line">fclose(fp);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="结构体的内存空间"><a href="#结构体的内存空间" class="headerlink" title="结构体的内存空间"></a>结构体的内存空间</h2><p>结构体变量大小是所有成员之和吗？</p>
+<p>实际上，结构体变量大小是所有成员之和，但是还要考虑对齐问题。</p>
+<p>结构体成员的地址必须相对于结构体首地址的偏移量是成员大小的整数倍。</p>
+<h3 id="确定内存的颗粒度"><a href="#确定内存的颗粒度" class="headerlink" title="确定内存的颗粒度"></a>确定内存的颗粒度</h3><p>以多少个字节为单位(颗粒大小)开辟内存给结构体变量分配内存的时候，会去结构体变量中找基本类型的成员中基本类型的成员占字节数多，就以它大大小为颗粒单位开辟内存。而实际上不同的编译器关于结构体的内存分配有不同的规则，但大多数遵循以下的规律。</p>
+<ol>
+<li>成员中只有char型数据，以1字节为单位开辟内存</li>
+<li>成员中出现了short 类型数据，没有更大字节数的基本类型数据，以2字节为单位开辟内存</li>
+<li>出现了int、float没有更大字节的基本类型数据的时候以4字节为单位开辟内存。</li>
+<li>出现了double类型的数据，要根据编译器确定，VC编译器是8字节，gcc编译器是4字节。</li>
+<li>出现了long long类型的数据，以8字节为单位开辟内存。</li>
+<li>如果成员中出现了数组，分配空间时将数组视作多个成员的集合</li>
+</ol>
+<h3 id="结构体成员的内存对齐"><a href="#结构体成员的内存对齐" class="headerlink" title="结构体成员的内存对齐"></a>结构体成员的内存对齐</h3><p>既然已经确定了颗粒度，那么让结构体成员的内存在分配时对齐颗粒度(这下真是“对齐颗粒度”了)就可以提高访问速度，但是会浪费一些内存空间。</p>
+<p>结构体成员对齐的规则是：结构体成员的地址相对于结构体首地址的偏移量是颗粒度大小的整数倍。</p>
+<p>例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">temp</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="type">short</span> c;</span><br><span class="line">&#125;TempS;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of char:%d\n&quot;</span>,<span class="keyword">sizeof</span>(<span class="type">char</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of int:%d\n&quot;</span>,<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of short:%d\n&quot;</span>,<span class="keyword">sizeof</span>(<span class="type">short</span>));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of Struct:%d\n&quot;</span>,<span class="keyword">sizeof</span>(TempS));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个结构体类型成员有<code>char</code>、<code>int</code>、<code>short</code>三种类型，根据<a href="###%E7%A1%AE%E5%AE%9A%E5%86%85%E5%AD%98%E7%9A%84%E9%A2%97%E7%B2%92%E5%BA%A6">上述规则</a>可以确定，这个结构体类型以最大的<code>int</code>类型的4字节为单位开辟内存，因此虽然结构体中有小于4字节的<code>char</code>和<code>short</code>类型，但是依然给他们分配了4字节的空间，所以这个结构体的大小是12字节。</p>
+
+        
+      </div>
+
+       
+        <footer class="article-footer">
+           
+        </footer>
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2024/07/10/2024-7-11-01/"
+      title="const关键字"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        const关键字
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2024/07/10/2024-7-19-01/"
+      title="共用体"
+     >
+
+    <p class="title-text">
+      
+        共用体
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2024 Zaiyuyou<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

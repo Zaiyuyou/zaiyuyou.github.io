@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>位段 | 在与有的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="位段C语言允许在一个结构体中以位为单位来指定其成员所占内存长度，这种以位为单位的成员称为“位段”或称“位段”(bit field)。利用位段能够用较少的位数存储数据。。unsigned int a:1;表示a占1位Bit表示数字。位段成员除了可以指定为unsigned int整形还可以指定为字符char 12345typedef struct&#123;    unsigned int a:1;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="位段">
+<meta property="og:url" content="http://zaiyuyou.github.io/2024/07/10/2024-7-19-02/index.html">
+<meta property="og:site_name" content="在与有的小站">
+<meta property="og:description" content="位段C语言允许在一个结构体中以位为单位来指定其成员所占内存长度，这种以位为单位的成员称为“位段”或称“位段”(bit field)。利用位段能够用较少的位数存储数据。。unsigned int a:1;表示a占1位Bit表示数字。位段成员除了可以指定为unsigned int整形还可以指定为字符char 12345typedef struct&#123;    unsigned int a:1;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-19T00:39:16.055Z">
+<meta property="article:author" content="Zaiyuyou">
+<meta property="article:tag" content="开发技巧">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/img/titlebar.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>在与有的小站 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">主页</a>
+    
+      <a class="main-nav-link" href="/archives">归档</a>
+    
+      <a class="main-nav-link" href="/about">关于</a>
+    
+      <a class="main-nav-link" href="/tags">标签</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">主页</a>
+    
+      <a class="nav-dropdown-link" href="/archives">归档</a>
+    
+      <a class="nav-dropdown-link" href="/about">关于</a>
+    
+      <a class="nav-dropdown-link" href="/tags">标签</a>
+    
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/img/head.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Zaiyuyou </div>
+      <div class="dot"></div>
+      <div class="subtitle">随心遂意-常习常喜-拾慧时惠 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/Zaiyuyou/" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">
+                编程
+                <div class="category-count">11</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-2024-7-19-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        位段
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-10T16:00:00.000Z" itemprop="datePublished">2024-07-11</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.7k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="位段"><a href="#位段" class="headerlink" title="位段"></a>位段</h1><p>C语言允许在一个结构体中以位为单位来指定其成员所占内存长度，这种以位为单位的成员称为“位段”或称“位段”(bit field)。<br>利用位段能够用较少的位数存储数据。。<code>unsigned int a:1</code>;表示a占1位Bit表示数字。<br>位段成员除了可以指定为<code>unsigned int</code>整形还可以指定为字符<code>char</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> a:<span class="number">1</span>;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> b:<span class="number">1</span>;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> c:<span class="number">2</span>;</span><br><span class="line">&#125;Bit;</span><br></pre></td></tr></table></figure>
+
+<p>在底层编程中，使用位段可以很方便地将一个<a href="#%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83">存储单元</a>划分成若干长度不等的连续内存。但其内存分配与内存对齐的实现方式依赖于具体的机器和系统，<strong>在不同的平台可能有不同的结果，这导致了位段在本质上是不可移植的</strong>。不同的IDE在处理位段这种数据结构的时候确实会有很大的不同。比如vs和DEV-c++。<sup>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46359697/article/details/108293880">1</a>]</sup></p>
+<h2 id="存储单元"><a href="#存储单元" class="headerlink" title="存储单元"></a>存储单元</h2><p>存储单元就是一个C语言的基本变量，如<code>int</code>、<code>char</code>等;<br><strong>位段必须存放在一个存储单元中，不能跨两个单元</strong>，一个单元空间不能容纳下一个位段，则该空间不用，而从下一个单元起存放该位段。’以下是常见的存储单元大小：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">单元大小(Byte)</th>
+<th align="center">最大长度(bit)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">char</td>
+<td align="center">1</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">2</td>
+<td align="center">16</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">4</td>
+<td align="center">32</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">4</td>
+<td align="center">32</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">4</td>
+<td align="center">32</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">8</td>
+<td align="center">64</td>
+</tr>
+</tbody></table>
+<p><strong>测试代码：</strong> <strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include%3Cstdio.h%3E%0D%0Astruct+temp1%7B%0D%0A++++char+a:7;%0D%0A++++char+b:7;%0D%0A++++char+c:2;%0D%0A%7Dtemp1;%0D%0A%0D%0Aint+main()%7B%0D%0A++++printf(%22%25d%5Cn%22,sizeof(temp1));%0D%0A++++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">temp1</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> a:<span class="number">7</span>;</span><br><span class="line">    <span class="type">short</span> b:<span class="number">7</span>;</span><br><span class="line">    <span class="type">char</span> c:<span class="number">2</span>;</span><br><span class="line">&#125;temp1;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="keyword">sizeof</span>(temp1));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<p><strong>分析：</strong></p>
+<p><code>char a:7</code>表示a占7位，<code>char b:7</code>表示b占7位，<code>char c:2</code>表示c占2位，一共是16位，但是一个存储单元是8位，<strong>且成员不能跨单位存储</strong>，所以需要三个存储单元，因此<code>sizeof(temp)</code>的结果是3。</p>
+<table>
+<capital>使用表格体现这个位段的内存划分：</capital>
+<tr>
+<th colspan=8 width="80px">存储单元1</th>
+<th colspan=8 width="80px">存储单元2</th>
+<th colspan=8 width="80px">存储单元3</th>
+</tr>
+<tr>
+<th bgcolor=#ffffcc>0</th>
+<th bgcolor=#ffffcc>1</th>
+<th bgcolor=#ffffcc>2</th>
+<th bgcolor=#ffffcc>3</th>
+<th bgcolor=#ffffcc>4</th>
+<th bgcolor=#ffffcc>5</th>
+<th bgcolor=#ffffcc>6</th>
+<th>7</th>
+<th bgcolor=#ffffcc>0</th>
+<th bgcolor=#ffffcc>1</th>
+<th bgcolor=#ffffcc>2</th>
+<th bgcolor=#ffffcc>3</th>
+<th bgcolor=#ffffcc>4</th>
+<th bgcolor=#ffffcc>5</th>
+<th bgcolor=#ffffcc>6</th>
+<th>7</th>
+<th bgcolor=#ffffcc>0</th>
+<th bgcolor=#ffffcc>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+
+
+<tr>
+<th colspan=7  bgcolor=#ffffcc>a</th>
+<th colspan=1>N</th>
+<th colspan=7  bgcolor=#ffffcc>b</th>
+<th colspan=1>N</th>
+<th colspan=2  bgcolor=#ffffcc>c</th>
+<th colspan=6>N</th>
+
+</tr>
+</table>
+
+
+<h2 id="无名位段"><a href="#无名位段" class="headerlink" title="无名位段"></a>无名位段</h2><p>如果位段的定义没有给出标识符名字，那么这是无名位段，无法被初始化。<br>无名位段用于填充(padding)内存布局。<strong>只有无名位段的比特数可以为0</strong>。<br>这种占0比特的无名位段，用于强制让下一个位段在内存分配边界对齐。</p>
+<p><strong>测试代码：</strong> <strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include%3Cstdio.h%3E%0D%0Astruct+temp1%7B%0D%0A++++char+a:1;%0D%0A++++char+b:2;%0D%0A%7Dtemp1;%0D%0Astruct+temp2%7B%0D%0A++++char+a:1;%0D%0A++++char+:+0;%0D%0A++++char+b:2;%0D%0A%7Dtemp2;%0D%0A%0D%0Aint+main()%7B%0D%0A++++printf(%22temp1:%25d%5Cn%22,sizeof(temp1));%0D%0A++++printf(%22temp2:%25d%5Cn%22,sizeof(temp2));%0D%0A++++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">temp1</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> a:<span class="number">1</span>;</span><br><span class="line">    <span class="type">char</span> b:<span class="number">2</span>;</span><br><span class="line">&#125;temp1;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">temp2</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> a:<span class="number">1</span>;</span><br><span class="line">    <span class="type">char</span> : <span class="number">0</span>;</span><br><span class="line">    <span class="type">char</span> b:<span class="number">2</span>;</span><br><span class="line">&#125;temp2;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;temp1:%d\n&quot;</span>,<span class="keyword">sizeof</span>(temp1));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;temp2:%d\n&quot;</span>,<span class="keyword">sizeof</span>(temp2));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp1:1</span><br><span class="line">temp2:2</span><br></pre></td></tr></table></figure>
+
+<p><strong>内存划分：</strong></p>
+<table>
+<capital>Temp1：</capital>
+<tr>
+<th colspan=8 width="80px">存储单元1</th>
+</tr>
+<tr>
+<th bgcolor=#ffffcc>0</th>
+<th bgcolor=#ffaacc>1</th>
+<th bgcolor=#ffaacc>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+
+<tr>
+<th colspan=1  bgcolor=#ffffcc>a</th>
+<th colspan=2  bgcolor=#ffaacc>b</th>
+<th colspan=5>N</th>
+
+</tr>
+</table>
+
+
+<table>
+<capital>Temp2：</capital>
+<tr>
+<th colspan=8 width="80px">存储单元1</th>
+<th colspan=8 width="80px">存储单元2</th>
+</tr>
+<tr>
+<th bgcolor=#ffffcc>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th bgcolor=#ffaacc>0</th>
+<th bgcolor=#ffaacc>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+
+<tr>
+<th colspan=1 bgcolor=#ffffcc>a</th>
+<th colspan=7>N</th>
+<th colspan=2 bgcolor=#ffaacc>b</th>
+<th colspan=6>N</th>
+
+</tr>
+</table>
+
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>通常在大端序系统(如PowerPC)，安排位域从最重要字节(most-significant byte)到最不重要字节(least-significant byte)，在一个字节内部从最重要位(most-significant bit)到最不重要位(least-significant bit)；</p>
+<p>而在小端序系统(如x86)，安排位域从最不重要位(least-significant byte)到最重要字节(most-significant byte)，在一个字节内部从最不重要位(least-significant bit)到最重要位(most-significant bit)。</p>
+<p>共同遵从的原则是内存字节地址从低到高，内存内部的比特编号从低到高。<sup>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46359697/article/details/108293880">1</a>]</sup></p>
+
+        
+      </div>
+
+       
+        <footer class="article-footer">
+           
+        </footer>
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2024/07/10/2024-7-19-01/"
+      title="共用体"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        共用体
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2024/07/10/2024-7-8-02/"
+      title="字符串处理函数"
+     >
+
+    <p class="title-text">
+      
+        字符串处理函数
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2024 Zaiyuyou<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
