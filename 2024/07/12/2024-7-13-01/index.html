@@ -14,7 +14,7 @@
   
 
   
-  <title>结构体以及应用 | 在与有的小站</title>
+  <title>结构体&amp;共用体及其用法 | 在与有</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
@@ -22,13 +22,13 @@
 
   <meta name="description" content="结构体概念结构体是一种构造类型，它是由若干不同类型的数据项组合而成的一个数据集合。 描述一组具有相同数据的有序集合，用于处理大量相同类型的数据运算，有时我们需要将不同类型的数据组合成一个有机的整体方便引用。 类似与面向对象编程中定义一个类以及其属性，不过C语言中不能在结构体中定义函数，不过可以使用函数指针实现类似于面向对象编程的方法来调用类的函数。 结构体类型和变量的定义定义方法1：先定义结构体类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="结构体以及应用">
+<meta property="og:title" content="结构体&amp;共用体及其用法">
 <meta property="og:url" content="http://zaiyuyou.github.io/2024/07/12/2024-7-13-01/index.html">
-<meta property="og:site_name" content="在与有的小站">
+<meta property="og:site_name" content="在与有">
 <meta property="og:description" content="结构体概念结构体是一种构造类型，它是由若干不同类型的数据项组合而成的一个数据集合。 描述一组具有相同数据的有序集合，用于处理大量相同类型的数据运算，有时我们需要将不同类型的数据组合成一个有机的整体方便引用。 类似与面向对象编程中定义一个类以及其属性，不过C语言中不能在结构体中定义函数，不过可以使用函数指针实现类似于面向对象编程的方法来调用类的函数。 结构体类型和变量的定义定义方法1：先定义结构体类">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-19T00:49:32.584Z">
+<meta property="article:modified_time" content="2024-08-03T07:01:23.907Z">
 <meta property="article:author" content="Zaiyuyou">
 <meta property="article:tag" content="开发技巧">
 <meta property="article:tag" content="笔记">
@@ -72,7 +72,7 @@
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
-      <div>在与有的小站 </div>
+      <div>在与有 </div>
     </a>
   </nav>
   <nav id="main-nav">
@@ -157,6 +157,11 @@
                 编程
                 <div class="category-count">11</div>
             </a>
+        
+            <a class="category-link" href="/categories/Linux/">
+                Linux
+                <div class="category-count">3</div>
+            </a>
         </div>
     </div>
   </div>
@@ -167,7 +172,7 @@
   <div class="widget-wrap">
     <div class="widget">
       <h3 class="widget-title">标签</h3>
-      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
     </div>
   </div>
 
@@ -193,7 +198,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        结构体以及应用
+        结构体&amp;共用体及其用法
       </h1>
     
   
@@ -212,7 +217,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            4.1k 词 
+            5.1k 词 
           </div>
         </div>
         
@@ -294,7 +299,26 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">temp</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="type">short</span> c;</span><br><span class="line">&#125;TempS;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of char:%d\n&quot;</span>,<span class="keyword">sizeof</span>(<span class="type">char</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of int:%d\n&quot;</span>,<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of short:%d\n&quot;</span>,<span class="keyword">sizeof</span>(<span class="type">short</span>));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Size of Struct:%d\n&quot;</span>,<span class="keyword">sizeof</span>(TempS));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这个结构体类型成员有<code>char</code>、<code>int</code>、<code>short</code>三种类型，根据<a href="###%E7%A1%AE%E5%AE%9A%E5%86%85%E5%AD%98%E7%9A%84%E9%A2%97%E7%B2%92%E5%BA%A6">上述规则</a>可以确定，这个结构体类型以最大的<code>int</code>类型的4字节为单位开辟内存，因此虽然结构体中有小于4字节的<code>char</code>和<code>short</code>类型，但是依然给他们分配了4字节的空间，所以这个结构体的大小是12字节。</p>
+<hr>
+<h1 id="共用体"><a href="#共用体" class="headerlink" title="共用体"></a>共用体</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><p>在进行某些算法的时候，需要使几种不同类型的变量存到同一段内存单元中，几个变量所使用空间相互重叠这种几个不同的变量共同占用一段内存的结构，在C语言中，被称作“共用体”类型，共用体内多个成员共享一片储存空间，<strong>共用体的大小由最大的成员决定</strong>。 </p>
+<p>共用体和<a href="https://zaiyuyou.github.io/2024/07/10/2024-7-13-01/">结构体</a>用法相似，也是一种构造类型。</p>
+<h3 id="共用体的特点"><a href="#共用体的特点" class="headerlink" title="共用体的特点"></a>共用体的特点</h3><ol>
+<li>同一内存段可以用来存放几种不同类型的成员，但每一瞬时只有一种起作用</li>
+<li>共用体变量中起作用的成员是最后一次存放的成员，在赋值任意一个成员后所有成员的值会被覆盖</li>
+<li>共用体变量的地址和它的各成员的地址都是同一地址</li>
+</ol>
+<p>  <strong>测试代码：</strong> <strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%0D%0Aunion+data+%7B%0D%0A++++int+i;%0D%0A++++float+f;%0D%0A++++char+str%5B20%5D;%0D%0A%7D;%0D%0A%0D%0Aint+main()+%7B%0D%0A++++union+data+data;%0D%0A++++data.i+=+10;%0D%0A++++printf(%22data.i:+%25d%5Cn%22,+data.i);%0D%0A++++printf(%22data.f:+%25f%5Cn%22,+data.f);%0D%0A++++printf(%22data.str:+%25s%5Cn%22,+data.str);%0D%0A%0D%0A++++data.f+=+220.5;%0D%0A++++printf(%22data.i:+%25d%5Cn%22,+data.i);%0D%0A++++printf(%22data.f:+%25f%5Cn%22,+data.f);%0D%0A++++printf(%22data.str:+%25s%5Cn%22,+data.str);%0D%0A++++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">data</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">float</span> f;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">20</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">data</span> <span class="title">data</span>;</span></span><br><span class="line">    data.i = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;data.i: %d\n&quot;</span>, data.i);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;data.f: %f\n&quot;</span>, data.f);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;data.str: %s\n&quot;</span>, data.str);</span><br><span class="line"></span><br><span class="line">    data.f = <span class="number">220.5</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;data.i: %d\n&quot;</span>, data.i);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;data.f: %f\n&quot;</span>, data.f);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;data.str: %s\n&quot;</span>, data.str);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>输出结果：</strong></p>
+<figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data.i: 10</span><br><span class="line">data.f: 0.000000</span><br><span class="line">data.str: </span><br><span class="line"></span><br><span class="line">data.i: 1130135552</span><br><span class="line">data.f: 220.500000</span><br><span class="line">data.str: </span><br></pre></td></tr></table></figure>
+
+<h2 id="共用体的大小"><a href="#共用体的大小" class="headerlink" title="共用体的大小"></a>共用体的大小</h2><p>共用体的大小由最大的成员决定，如果共用体中包含多个结构体，共用体的大小由结构体中最大的成员决定。</p>
+<p><strong>测试代码：</strong> <strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%0D%0Aunion+data+%7B%0D%0A++++int+i;%0D%0A++++float+f;%0D%0A++++char+str%5B20%5D;%0D%0A++++struct+%7B%0D%0A++++++++int+a;%0D%0A++++++++char+b;%0D%0A++++%7D+s;%0D%0A%7D;%0D%0A%0D%0Aint+main()+%7B%0D%0A++++printf(%22sizeof(union+data):+%25lu%5Cn%22,+sizeof(union+data));%0D%0A++++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">data</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">float</span> f;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">20</span>];</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">        <span class="type">int</span> a;</span><br><span class="line">        <span class="type">char</span> b;</span><br><span class="line">    &#125; s;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;sizeof(union data): %lu\n&quot;</span>, <span class="keyword">sizeof</span>(<span class="keyword">union</span> data));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sizeof(union data): 20</span><br></pre></td></tr></table></figure>
         
       </div>
 
@@ -312,7 +336,7 @@
 <nav id="article-nav">
   <a class="article-nav-btn left "
     
-      href="/2024/07/18/2024-7-19-02/"
+      href="/2024/07/18/2024-7-19-01/"
       title="位段"
      >
     <i class="fa-solid fa-angle-left"></i>

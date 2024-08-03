@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>shell测试语句 | 在与有</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="测试语句在编写shell脚本时，常遇到需要判断变量的值师傅相等，或者检查文件状态等，这时就需要测试语句进行测试才能决定下一步动作。shell脚本根据不同的数据类型设置了不同的条件语句的格式，使用test或者用中括号包围就可以执行条件测试语句，下面介绍常用的测试语句。  数值测试二元测试语句数值测试用于比较两个数值的大小，常用的测试语句如下：  -eq：等于(equal) -ne：不等于(not e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell测试语句">
+<meta property="og:url" content="http://zaiyuyou.github.io/2024/07/30/2024-7-31-01/index.html">
+<meta property="og:site_name" content="在与有">
+<meta property="og:description" content="测试语句在编写shell脚本时，常遇到需要判断变量的值师傅相等，或者检查文件状态等，这时就需要测试语句进行测试才能决定下一步动作。shell脚本根据不同的数据类型设置了不同的条件语句的格式，使用test或者用中括号包围就可以执行条件测试语句，下面介绍常用的测试语句。  数值测试二元测试语句数值测试用于比较两个数值的大小，常用的测试语句如下：  -eq：等于(equal) -ne：不等于(not e">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-03T07:01:23.907Z">
+<meta property="article:author" content="Zaiyuyou">
+<meta property="article:tag" content="开发技巧">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="shell">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/img/titlebar.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>在与有 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">主页</a>
+    
+      <a class="main-nav-link" href="/archives">归档</a>
+    
+      <a class="main-nav-link" href="/about">关于</a>
+    
+      <a class="main-nav-link" href="/tags">标签</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">主页</a>
+    
+      <a class="nav-dropdown-link" href="/archives">归档</a>
+    
+      <a class="nav-dropdown-link" href="/about">关于</a>
+    
+      <a class="nav-dropdown-link" href="/tags">标签</a>
+    
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/img/head.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Zaiyuyou </div>
+      <div class="dot"></div>
+      <div class="subtitle">随心遂意-常习常喜-拾慧时惠 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/Zaiyuyou/" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">
+                编程
+                <div class="category-count">11</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Linux/">
+                Linux
+                <div class="category-count">3</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-2024-7-31-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        shell测试语句
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-30T16:00:00.000Z" itemprop="datePublished">2024-07-31</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Linux/">Linux</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.2k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="测试语句"><a href="#测试语句" class="headerlink" title="测试语句"></a>测试语句</h1><p>在编写shell脚本时，常遇到需要判断变量的值师傅相等，或者检查文件状态等，这时就需要测试语句进行测试才能决定下一步动作。shell脚本根据不同的数据类型设置了不同的条件语句的格式，使用test或者用中括号包围就可以执行条件测试语句，下面介绍常用的测试语句。</p>
+<hr>
+<h2 id="数值测试"><a href="#数值测试" class="headerlink" title="数值测试"></a>数值测试</h2><p>二元测试语句<br>数值测试用于比较两个数值的大小，常用的测试语句如下：</p>
+<ul>
+<li>-eq：等于(equal)</li>
+<li>-ne：不等于(not equal)</li>
+<li>-gt：大于(greater than)</li>
+<li>-lt：小于(less than)</li>
+<li>-ge：大于等于(greater than or equal to)</li>
+<li>-le：小于等于(less than or equal to)</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">num1=10</span><br><span class="line">num2=20</span><br><span class="line">if [ $num1 -eq $num2 ]; then</span><br><span class="line">    echo &quot;$num1 等于 $num2&quot;</span><br><span class="line">else</span><br><span class="line">    echo &quot;$num1 不等于 $num2&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="字符串测试"><a href="#字符串测试" class="headerlink" title="字符串测试"></a>字符串测试</h2><p>二元测试语句<br>字符串测试用于比较两个字符串是否相等，常用的测试语句如下：</p>
+<ul>
+<li>&#x3D;：等于</li>
+<li>!&#x3D;：不等于</li>
+<li>-z：字符串长度为0</li>
+<li>-n：字符串长度不为0</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">str1=&quot;hello&quot;</span><br><span class="line">str2=&quot;world&quot;</span><br><span class="line">if [ $str1 = $str2 ]; then</span><br><span class="line">    echo &quot;$str1 等于 $str2&quot;</span><br><span class="line">else</span><br><span class="line">    echo &quot;$str1 不等于 $str2&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="文件测试"><a href="#文件测试" class="headerlink" title="文件测试"></a>文件测试</h2><p>文件测试分为文件状态测试和文件比较测试，以下是状态测试的部分</p>
+<h3 id="文件状态测试"><a href="#文件状态测试" class="headerlink" title="文件状态测试"></a>文件状态测试</h3><p>一元测试语句<br>文件测试用于检查文件的状态，常用的测试语句如下：</p>
+<ul>
+<li>-e：文件存在(exist)</li>
+<li>-s：文件是否非空</li>
+<li>-S：文件是套接字文件(socket)</li>
+<li>-L：文件是软链接文件(symbolic link)</li>
+<li>-b：文件是块设备文件(block)</li>
+<li>-c：文件是字符设备文件(character)</li>
+<li>-d：文件是目录(dir)</li>
+<li>-f：文件是普通文件(file)</li>
+<li>-p：文件是管道文件(pipe)</li>
+<li>-r：文件可读(readable)</li>
+<li>-w：文件可写(writeable)</li>
+<li>-x：文件可执行(executable)</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">file=&quot;/etc/passwd&quot;</span><br><span class="line">if [ -e $file ]; then</span><br><span class="line">    echo &quot;$file 存在&quot;</span><br><span class="line">else</span><br><span class="line">    echo &quot;$file 不存在&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件比较测试"><a href="#文件比较测试" class="headerlink" title="文件比较测试"></a>文件比较测试</h3><p>二元测试语句<br>文件比较测试用于比较文件的大小，修改时间等信息，常用的测试语句如下：</p>
+<ul>
+<li>-nt：文件1比文件2新(newer than)</li>
+<li>-ot：文件1比文件2旧(older than)</li>
+<li>-ef：文件1和文件2是同一个文件(equals file)(判断两个文件是否是硬链接)</li>
+</ul>
+<p>另外，还可以借用数值测试中的比较运算符进行文件大小比较，常用的测试语句如下：</p>
+<ul>
+<li>-eq：文件1和文件2大小相等(equal)</li>
+<li>-ne：文件1和文件2大小不相等(not equal)</li>
+<li>-le：文件1小于等于文件2(less than or equal)</li>
+<li>-ge：文件1大于等于文件2(greater than or equal)</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">file1=&quot;/etc/passwd&quot;</span><br><span class="line">file2=&quot;/etc/shadow&quot;</span><br><span class="line">if [ $file1 -nt $file2 ]; then</span><br><span class="line">    echo &quot;$file1 比 $file2 新&quot;</span><br><span class="line">else</span><br><span class="line">    echo &quot;$file1 比 $file2 旧&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="复合测试"><a href="#复合测试" class="headerlink" title="复合测试"></a>复合测试</h2><p>复合测试用于将多个测试条件组合在一起，常用的测试语句如下：</p>
+<h3 id="命令执行控制语句："><a href="#命令执行控制语句：" class="headerlink" title="命令执行控制语句："></a>命令执行控制语句：</h3><ul>
+<li>&amp;&amp;：逻辑与(and)</li>
+<li>||：逻辑或(or)</li>
+</ul>
+<p>命令执行控制语句本质上是将多个命令的执行结果进行运算，并不能直接的将多个判断条件放在一条命令中</p>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test -e /home &amp;&amp; test -r /home</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">file=&quot;/etc/passwd&quot;</span><br><span class="line">if [ -e $file ] &amp;&amp; [ -r $file ]; then</span><br><span class="line">    echo &quot;$file 存在并且可读&quot;</span><br><span class="line">else</span><br><span class="line">    echo &quot;$file 不存在或者不可读&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h3 id="多重条件判定语句："><a href="#多重条件判定语句：" class="headerlink" title="多重条件判定语句："></a>多重条件判定语句：</h3><ul>
+<li>-a：逻辑与(and)</li>
+<li>-o：逻辑或(or)</li>
+<li>!：逻辑非(not)</li>
+</ul>
+<p>和命令执行控制语句不同，多重条件判断语句就是将多个条件用-a或者-o连接起来，如果条件为真，则整个表达式为真，否则为假。</p>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test -e /home -a -r /home</span><br></pre></td></tr></table></figure>
+
+<p>可以看到这条示例中相比于前面的命令执行控制语句，少了一个 <code>test</code> ，这是因为在多重条件判断语句中，<code>-a</code> 和 <code>-o</code> 是默认的，所以可以省略，同时被视作一条命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">file=&quot;/etc/passwd&quot;</span><br><span class="line">if [ -e $file -a -r $file ]; then</span><br><span class="line">    echo &quot;$file 存在并且可读&quot;</span><br><span class="line">else</span><br><span class="line">    echo &quot;$file 不存在或者不可读&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="条件表达式"><a href="#条件表达式" class="headerlink" title="条件表达式"></a>条件表达式</h2><p>条件表达式用于在shell脚本中执行条件判断，常用的测试语句如下：</p>
+
+        
+      </div>
+
+       
+        <footer class="article-footer">
+           
+        </footer>
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2024/08/03/Welcome/"
+      title="欢迎！"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        欢迎！
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2024/07/28/2024-7-29-01/"
+      title="shell脚本基础"
+     >
+
+    <p class="title-text">
+      
+        shell脚本基础
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2024 Zaiyuyou<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

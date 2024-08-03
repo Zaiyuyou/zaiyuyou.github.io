@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>shell脚本基础 | 在与有</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="概念Shell 是一个命令行解释器，它为用户提供了一个向操作系统发送指令的接口。Shell 脚本（Shell Script）是一种为 Shell 编写的脚本程序，它包含了一系列的命令和语句，用于实现特定的功能。Shell 脚本通常用于自动化日常任务、批量处理文件、编写简单的应用程序等。Shell脚本本质上是Shell命令的有序集合。  基本语法1234567#!&#x2F;bin&#x2F;bash# 注释# 开头指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell脚本基础">
+<meta property="og:url" content="http://zaiyuyou.github.io/2024/07/28/2024-7-29-01/index.html">
+<meta property="og:site_name" content="在与有">
+<meta property="og:description" content="概念Shell 是一个命令行解释器，它为用户提供了一个向操作系统发送指令的接口。Shell 脚本（Shell Script）是一种为 Shell 编写的脚本程序，它包含了一系列的命令和语句，用于实现特定的功能。Shell 脚本通常用于自动化日常任务、批量处理文件、编写简单的应用程序等。Shell脚本本质上是Shell命令的有序集合。  基本语法1234567#!&#x2F;bin&#x2F;bash# 注释# 开头指">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-03T07:01:23.907Z">
+<meta property="article:author" content="Zaiyuyou">
+<meta property="article:tag" content="开发技巧">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="shell">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/img/titlebar.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>在与有 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">主页</a>
+    
+      <a class="main-nav-link" href="/archives">归档</a>
+    
+      <a class="main-nav-link" href="/about">关于</a>
+    
+      <a class="main-nav-link" href="/tags">标签</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">主页</a>
+    
+      <a class="nav-dropdown-link" href="/archives">归档</a>
+    
+      <a class="nav-dropdown-link" href="/about">关于</a>
+    
+      <a class="nav-dropdown-link" href="/tags">标签</a>
+    
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/img/head.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Zaiyuyou </div>
+      <div class="dot"></div>
+      <div class="subtitle">随心遂意-常习常喜-拾慧时惠 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/Zaiyuyou/" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">
+                编程
+                <div class="category-count">11</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Linux/">
+                Linux
+                <div class="category-count">3</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-2024-7-29-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        shell脚本基础
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-28T16:00:00.000Z" itemprop="datePublished">2024-07-29</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Linux/">Linux</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.7k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>Shell 是一个命令行解释器，它为用户提供了一个向操作系统发送指令的接口。Shell 脚本（Shell Script）是一种为 Shell 编写的脚本程序，它包含了一系列的命令和语句，用于实现特定的功能。Shell 脚本通常用于自动化日常任务、批量处理文件、编写简单的应用程序等。<br>Shell脚本本质上是Shell命令的有序集合。</p>
+<hr>
+<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注释</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开头指定bash解释脚本,不写则默认shell</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">屏幕打印字符串：</span></span><br><span class="line">echo &quot;hello world&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="自定义变量"><a href="#自定义变量" class="headerlink" title="自定义变量"></a>自定义变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">定义变量</span></span><br><span class="line">name=&quot;hello&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用变量</span></span><br><span class="line">echo $name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">只读变量</span></span><br><span class="line">readonly name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除变量</span></span><br><span class="line">unset name</span><br></pre></td></tr></table></figure>
+
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>shell在开始运行时就已经定义了一些和系统工作环境有关的变量，我们在shell中可以直接使用<code>$name</code> 引用。<br>可以使用 <code>export</code> 前缀来自定义环境变量，或将已有变量修饰为环境变量。<br>另外，使用<code>env</code>命令可以查看当前系统所有的环境变量。环境变量使用unset也可以清除。<br>一般情况下环境变量是全大写字母</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">定义环境变量</span></span><br><span class="line">export name=&quot;hello&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用环境变量</span></span><br><span class="line">echo $name</span><br></pre></td></tr></table></figure>
+
+<h4 id="常见的环境变量"><a href="#常见的环境变量" class="headerlink" title="常见的环境变量"></a>常见的环境变量</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前用户</span></span><br><span class="line">USER</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前用户家目录</span></span><br><span class="line">HOME</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前用户登录的终端</span></span><br><span class="line">SHELL</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前用户登录的终端类型</span></span><br><span class="line">TERM</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前用户登录的终端的编号</span></span><br><span class="line">Tty</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前用户登录的终端的进程号</span></span><br><span class="line">Pid</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前用户登录的终端的进程号</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="访问和编辑系统变量文件"><a href="#访问和编辑系统变量文件" class="headerlink" title="访问和编辑系统变量文件"></a>访问和编辑系统变量文件</h4><p>一般在 <code>~/.bashrc</code>或者<code>/etc/profile</code>文件中，可以编辑环境变量。<br><strong>编辑完成后，使用 <code>source ~/.bashrc</code> 或者 <code>source /etc/profile</code> 命令使修改生效。或者重启终端&#x2F;系统让其自动启用生效。</strong></p>
+<h3 id="预设变量"><a href="#预设变量" class="headerlink" title="预设变量"></a>预设变量</h3><p>在运行shell脚本时，我们可以通过命令行参数的形式向脚本传递参数，这些参数在脚本中被称为预设变量。预设变量是shell脚本中预先定义好的变量，用于存储命令行参数的值。这样在shell脚本中就可以调用用户在执行脚本时传入的参数。</p>
+<p><code>$0</code>：当前进程的名称</p>
+<p><code>$$</code>：当前进程的进程号</p>
+<p><code>$1 $2 $3 …… $9</code>：运行脚本时传递给其的参数。如果序号不止一位，必须使用花括号将序号连成整体<code>$&#123;10&#125;</code></p>
+<p><code>$#</code>：参数个数</p>
+<p><code>$*</code>：所有参数的内容(拼接字符串)</p>
+<p><code>$@</code>：所有参数组成的数组(变量数组)</p>
+<p><code>$?</code>：命令返回后的状态，0表示成功，非0表示失败</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">字符串拼接</span></span><br><span class="line">name=&quot;hello&quot;</span><br><span class="line">echo &quot;my name is $&#123;name&#125;&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">字符串长度</span></span><br><span class="line">name=&quot;hello&quot;</span><br><span class="line">echo $&#123;#name&#125;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">字符串截取</span></span><br><span class="line">name=&quot;hello&quot;</span><br><span class="line">echo $&#123;name:1:2&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">定义数组</span></span><br><span class="line">arr=(1 2 3)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用数组</span></span><br><span class="line">echo $&#123;arr[0]&#125;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">数组长度</span></span><br><span class="line">echo $&#123;#arr[@]&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">if</span></span></span><br><span class="line">if [ $1 -eq 1 ]; then</span><br><span class="line">    echo &quot;1&quot;</span><br><span class="line">elif [ $1 -eq 2 ]; then</span><br><span class="line">    echo &quot;2&quot;</span><br><span class="line">else</span><br><span class="line">    echo &quot;3&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">for</span></span></span><br><span class="line">for i in &#123;1..5&#125;; do</span><br><span class="line">    echo $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">定义函数</span></span><br><span class="line">function func() &#123;</span><br><span class="line">    echo &quot;hello&quot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">调用函数</span></span><br><span class="line">func</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">读取文件</span></span><br><span class="line">while read line; do</span><br><span class="line">    echo $line</span><br><span class="line">done &lt; file.txt</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="执行脚本的三种方式"><a href="#执行脚本的三种方式" class="headerlink" title="执行脚本的三种方式"></a>执行脚本的三种方式</h1><ol>
+<li>chmod +x test.sh，后 .&#x2F;test.sh<br> 增加可执行权限后执行</li>
+<li>bash test.sh<br> 直接指定bash解释运行脚本</li>
+<li>. test.sh<br> <code>.</code>空格 + <code>脚本</code> 使用当前shell执行脚本，这种执行方式不会开启子进程，脚本中的变量会直接在当前shell中生效。而且会忽略脚本中指定的shell解释器类型。</li>
+</ol>
+
+        
+      </div>
+
+       
+        <footer class="article-footer">
+           
+        </footer>
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2024/07/30/2024-7-31-01/"
+      title="shell测试语句"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        shell测试语句
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2024/07/28/2024-7-29-02/"
+      title="shell脚本变量的特殊用法"
+     >
+
+    <p class="title-text">
+      
+        shell脚本变量的特殊用法
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2024 Zaiyuyou<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
