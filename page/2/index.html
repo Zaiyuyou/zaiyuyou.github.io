@@ -148,12 +148,12 @@
       <div class="category-box">
             <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">
                 编程
-                <div class="category-count">11</div>
+                <div class="category-count">12</div>
             </a>
         
             <a class="category-link" href="/categories/Linux/">
                 Linux
-                <div class="category-count">3</div>
+                <div class="category-count">4</div>
             </a>
         </div>
     </div>
@@ -176,6 +176,354 @@
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-2024-7-8-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/07/10/2024-7-8-02/">字符串处理函数</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-10T16:00:00.000Z" itemprop="datePublished">2024-07-11</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            8k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="字符串处理函数"><a href="#字符串处理函数" class="headerlink" title="字符串处理函数"></a>字符串处理函数</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0">字符串处理函数</a><ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6%E5%87%BD%E6%95%B0">字符串长度函数</a><ul>
+<li><a href="#strlen">strlen</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%8D%E5%88%B6%E5%87%BD%E6%95%B0">字符串复制函数</a><ul>
+<li><a href="#strcpy">strcpy</a><ul>
+<li><a href="#%E5%A4%9A%E4%B8%AA0%E7%9A%84%E6%83%85%E5%86%B5">多个<code>\0</code>的情况</a></li>
+</ul>
+</li>
+<li><a href="#strncpy">strncpy</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5%E5%87%BD%E6%95%B0">字符串连接函数</a><ul>
+<li><a href="#strcat">strcat</a><ul>
+<li><a href="#%E5%A4%9A%E4%B8%AA0%E7%9A%84%E6%83%85%E5%86%B5-1">多个<code>\0</code>的情况</a></li>
+</ul>
+</li>
+<li><a href="#strncat">strncat</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0">字符串比较函数</a><ul>
+<li><a href="#strcmp">strcmp</a></li>
+<li><a href="#strncmp">strncmp</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9F%A5%E6%89%BE%E5%87%BD%E6%95%B0">字符串查找函数</a><ul>
+<li><a href="#strchr">strchr</a></li>
+<li><a href="#strrchr">strrchr</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E5%87%BD%E6%95%B0">字符串匹配函数</a><ul>
+<li><a href="#strstr">strstr</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0">字符串转换函数</a><ul>
+<li><a href="#atoi">atoi</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E5%89%B2%E5%87%BD%E6%95%B0">字符串切割函数</a><ul>
+<li><a href="#strtok">strtok</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%87%BD%E6%95%B0">字符串格式化函数</a><ul>
+<li><a href="#sprintf">sprintf</a></li>
+<li><a href="#sscanf">sscanf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="字符串长度函数"><a href="#字符串长度函数" class="headerlink" title="字符串长度函数"></a>字符串长度函数</h2><h3 id="strlen"><a href="#strlen" class="headerlink" title="strlen"></a>strlen</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">size_t</span> <span class="title function_">strlen</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str)</span>;</span><br><span class="line"><span class="comment">//size_t本质是unsigned int的typdef</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  测传入的字符串指针str的字符串中字符的个数，不包括字符串结束符&#x27;\0&#x27;</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  str：字符串指针 </span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回字符串的长度，不包括字符串结束符&#x27;\0&#x27;。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>和<code>sizeof</code>函数不同，<code>strlen</code>返回的是字符串的长度；<code>sizeof</code>函数返回的是字符串开辟空间的大小，如果是一般的字符串常量，则这个空间大小就是字符串长度加上字符串结束符<code>\0</code>的大小，如果是字符数组的字符串，那就是数组大小。</p>
+<h2 id="字符串复制函数"><a href="#字符串复制函数" class="headerlink" title="字符串复制函数"></a>字符串复制函数</h2><h3 id="strcpy"><a href="#strcpy" class="headerlink" title="strcpy"></a>strcpy</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">char</span> *<span class="title function_">strcpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  将字符串src复制到字符串dest中</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  dest：目标字符串指针</span></span><br><span class="line"><span class="comment">  src：源字符串指针</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回目标字符串指针dest</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><code>strcpy</code>复制的字符串包含源字符串的<code>\0</code>，而且遇到的第一个<code>\0</code>会让函数结束复制并返回</p>
+<p><strong>注意：</strong><br>在使用字符串复制函数时，函数不会检查dest的内存空间是否大于src，因此要保证<strong>目标字符串dest必须有足够的空间来存放源字符串src，否则会发生内存越界。</strong></p>
+<h4 id="多个-0的情况"><a href="#多个-0的情况" class="headerlink" title="多个\0的情况"></a>多个<code>\0</code>的情况</h4><p>  如果<code>src</code>有多个<code>\0</code>，<code>strcpy</code>只会复制第一个<code>\0</code>之前的内容。</p>
+<p>  <strong>测试代码：</strong><strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%23include+%3Cstring.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++++char+dest%5B50%5D+=+%22Hello%5C0World%22;%0D%0A++++char+src%5B20%5D+=+%22+everyone!%22;%0D%0A%0D%0A++++strcpy(dest,+src);%0D%0A%0D%0A++++printf(%22%25s%5Cn%22,+dest);%0D%0A%7D">[点击运行]</a></strong></p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">char</span> dest[<span class="number">50</span>] = <span class="string">&quot;Hello\0World&quot;</span>;</span><br><span class="line">    <span class="type">char</span> src[<span class="number">20</span>] = <span class="string">&quot; everyone!&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strcpy</span>(dest, src);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, dest);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  <strong>输出结果：</strong></p>
+  <figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">everyone!</span><br></pre></td></tr></table></figure>
+
+<h3 id="strncpy"><a href="#strncpy" class="headerlink" title="strncpy"></a>strncpy</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">char</span> *<span class="title function_">strncpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src, <span class="type">size_t</span> n)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  将字符串src的前n个字符复制到字符串dest中</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  dest：目标字符串指针</span></span><br><span class="line"><span class="comment">  src：源字符串指针</span></span><br><span class="line"><span class="comment">  n：要复制的字符个数</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回目标字符串指针dest</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><code>strncpy</code>的返回条件不再是遇到<code>\0</code>，而是复制n个字符。n数完了就返回</p>
+<p><strong>注意：</strong><br><strong>如果n的大小大于<code>src</code>的大小，则在之后用<code>\0</code>填充<code>dest</code>。</strong><br><strong><code>strncpy</code>也要注意内存越界的问题。</strong></p>
+<hr>
+<h2 id="字符串连接函数"><a href="#字符串连接函数" class="headerlink" title="字符串连接函数"></a>字符串连接函数</h2><h3 id="strcat"><a href="#strcat" class="headerlink" title="strcat"></a>strcat</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">char</span> *<span class="title function_">strcat</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  将字符串src连接到字符串dest的末尾</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  dest：目标字符串指针</span></span><br><span class="line"><span class="comment">  src：源字符串指针</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回目标字符串指针dest</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><code>strcat</code>的追加位置是<code>dest</code>字符串的第一个<code>\0</code>前，如果<code>dest</code>字符串没有<code>\0</code>，则<code>strcat</code>会认为<code>dest</code>是一个尚未初始化的空间，则相当于直接给<code>dest</code>赋值<code>src</code>的内容。</p>
+<p><strong>注意：</strong><br><strong><code>strcat</code>也要注意内存越界的问题</strong></p>
+<h4 id="多个-0的情况-1"><a href="#多个-0的情况-1" class="headerlink" title="多个\0的情况"></a>多个<code>\0</code>的情况</h4><ol>
+<li><p>如果<code>dest</code>有多个<code>\0</code>，<code>strcat</code>会覆盖掉第一个<code>\0</code>之后的内容。</p>
+<p> <strong>测试代码：</strong><strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%23include+%3Cstring.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++++char+dest%5B50%5D+=+%22Hello%5C0World%22;%0D%0A++++char+src%5B20%5D+=+%22+everyone!%22;%0D%0A%0D%0A++++strcpy(dest,+src);%0D%0A%0D%0A++++printf(%22%25s%5Cn%22,+dest);%0D%0A%7D">[点击运行]</a></strong></p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">char</span> dest[<span class="number">50</span>] = <span class="string">&quot;Hello\0World&quot;</span>;</span><br><span class="line">    <span class="type">char</span> src[<span class="number">20</span>] = <span class="string">&quot; everyone!&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strcat</span>(dest, src);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, dest);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>输出结果：</strong></p>
+ <figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello everyone!</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果<code>src</code>有多个<code>\0</code>，<code>strcat</code>只会追加<code>src</code>字符串第一个<code>\0</code>前的内容,而忽略<code>src</code>中后续的任何字符。<br> <strong>测试代码：</strong><strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%23include+%3Cstring.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++char+dest%5B50%5D+=+%22Hello+%22;%0D%0A++char+src%5B50%5D+=+%22world%5C0again%5C0lastly%22;%0D%0A%0D%0A++strcat(dest,+src);%0D%0A%0D%0A++printf(%22%25s%5Cn%22,+dest);%0D%0A++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">char</span> dest[<span class="number">50</span>] = <span class="string">&quot;Hello &quot;</span>;</span><br><span class="line">    <span class="type">char</span> src[<span class="number">50</span>] = <span class="string">&quot;world\0again\0lastly&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strcat</span>(dest, src);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, dest);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>输出结果：</strong></p>
+ <figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello world</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="strncat"><a href="#strncat" class="headerlink" title="strncat"></a>strncat</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">char</span> *<span class="title function_">strncat</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src, <span class="type">size_t</span> n)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  将字符串src的前n个字符连接到字符串dest的末尾</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  dest：目标字符串指针</span></span><br><span class="line"><span class="comment">  src：源字符串指针</span></span><br><span class="line"><span class="comment">  n：要连接的字符个数</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回目标字符串指针dest</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong><br><strong>如果<code>n</code>大于<code>src</code>字符串中字符的个数(遇到第一个<code>\0</code>为止作为字符个数)，则只将<code>src</code>字符串中第一个<code>\0</code>前的内容追加到<code>dest</code>指向的字符串之后。</strong></p>
+<p>  <strong>测试代码：</strong><strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%23include+%3Cstring.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++char+dest%5B50%5D+=+%22Hello+%22;%0D%0A++char+src%5B50%5D+=+%22world%5C0again%5C0lastly%22;%0D%0A%0D%0A++strncat(dest,+src,+11);//%E6%98%BE%E7%84%B6%E5%9C%A8%22again%22%E4%B9%8B%E5%90%8E%E7%9A%84%E4%BD%8D%E7%BD%AE%0D%0A%0D%0A++printf(%22%25s%5Cn%22,+dest);%0D%0A++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">char</span> dest[<span class="number">50</span>] = <span class="string">&quot;Hello &quot;</span>;</span><br><span class="line">    <span class="type">char</span> src[<span class="number">50</span>] = <span class="string">&quot;world\0again\0lastly&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strncat</span>(dest, src, <span class="number">11</span>);<span class="comment">//显然在&quot;again&quot;之后的位置</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, dest);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  <strong>输出结果：</strong></p>
+  <figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello world</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="字符串比较函数"><a href="#字符串比较函数" class="headerlink" title="字符串比较函数"></a>字符串比较函数</h2><h3 id="strcmp"><a href="#strcmp" class="headerlink" title="strcmp"></a>strcmp</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">strcmp</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  比较字符串str1和str2的大小</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  str1：字符串1指针</span></span><br><span class="line"><span class="comment">  str2：字符串2指针</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  如果str1 &lt; str2，返回负数</span></span><br><span class="line"><span class="comment">  如果str1 &gt; str2，返回正数</span></span><br><span class="line"><span class="comment">  如果str1 == str2，返回0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>比较规则：</p>
+<ol>
+<li>从两个字符串的第一个字符开始比较ASIIC码，如果相等，则比较下一个字符，直到遇到不相等的字符或者遇到<code>\0</code>为止。</li>
+<li>如果两个字符串相等，则返回0。</li>
+<li>如果<code>str1</code>字符串大于<code>str2</code>字符串，返回1</li>
+<li>如果<code>str1</code>字符串小于<code>str2</code>字符串，返回-1</li>
+</ol>
+<p><strong>注意：</strong><br>   <strong><code>strcmp</code>返回值为0反而是两个字符串相同，需要注意。</strong></p>
+<p>  <strong>测试代码：</strong><strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%23include+%3Cstring.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++char+str1%5B50%5D+=+%22Hello%22;%0D%0A++char+str2%5B50%5D+=+%22Hello+World%22;%0D%0A++int+result+=+strncmp(str1,+str2,+3);%0D%0A%0D%0A++printf(%22strncmp+result:+%25d%5Cn%22,+result);%0D%0A++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">char</span> str1[<span class="number">50</span>] = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">    <span class="type">char</span> str2[<span class="number">50</span>] = <span class="string">&quot;World&quot;</span>;</span><br><span class="line">    <span class="type">int</span> result = <span class="built_in">strcmp</span>(str1, str2);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;strcmp result: %d\n&quot;</span>, result);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  输出结果(具体值可能和编译器有关)：</p>
+  <figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strcmp result: -15</span><br></pre></td></tr></table></figure>
+
+<h3 id="strncmp"><a href="#strncmp" class="headerlink" title="strncmp"></a>strncmp</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">strncmp</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2, <span class="type">size_t</span> n)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  比较字符串str1和str2的前n个字符的大小</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  str1：字符串1指针</span></span><br><span class="line"><span class="comment">  str2：字符串2指针</span></span><br><span class="line"><span class="comment">  n：要比较的字符个数</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  如果str1 &lt; str2，返回负数</span></span><br><span class="line"><span class="comment">  如果str1 &gt; str2，返回正数</span></span><br><span class="line"><span class="comment">  如果str1 == str2，返回0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong><br><strong>如果<code>n</code>大于<code>str1</code>或<code>str2</code>字符串中字符的个数(遇到第一个<code>\0</code>为止作为字符个数)，则只比较到第一个<code>\0</code>为止。</strong></p>
+<p>  <strong>测试代码：</strong><strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%23include+%3Cstring.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++char+str1%5B50%5D+=+%22Hello%22;%0D%0A++char+str2%5B50%5D+=+%22Hello+World%22;%0D%0A++int+result+=+strncmp(str1,+str2,+3);%0D%0A%0D%0A++printf(%22strncmp+result:+%25d%5Cn%22,+result);%0D%0A++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">char</span> str1[<span class="number">50</span>] = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">    <span class="type">char</span> str2[<span class="number">50</span>] = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">    <span class="type">int</span> result = <span class="built_in">strncmp</span>(str1, str2, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;strncmp result: %d\n&quot;</span>, result);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  <strong>输出结果：</strong></p>
+  <figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strncmp result: 0</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="字符串查找函数"><a href="#字符串查找函数" class="headerlink" title="字符串查找函数"></a>字符串查找函数</h2><h3 id="strchr"><a href="#strchr" class="headerlink" title="strchr"></a>strchr</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">char</span> *<span class="title function_">strchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> c)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  在字符串str中查找ASIIC码c对应的字符**第一次**出现的位置</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  str：字符串指针</span></span><br><span class="line"><span class="comment">  c：要查找的字符(用int强转后传入)</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  如果找到字符c，返回指向该字符的指针</span></span><br><span class="line"><span class="comment">  如果未找到字符c，返回NULL</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>测试代码：</strong>**<a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%23include+%3Cstring.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++char+str%5B50%5D+=+%22Halo+everyone!%22;%0D%0A++char+*result+=+strchr(str,+%27e%27);%0D%0A%0D%0A++//%E6%89%93%E5%8D%B0%E8%BF%94%E5%9B%9E%E7%9A%84%E6%8C%87%E9%92%88%E4%BC%9A%E6%98%BE%E7%A4%BA%E6%9F%A5%E6%89%BE%E5%88%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B9%8B%E5%90%8E%E7%9A%84%E5%86%85%E5%AE%B9%0D%0A++if(*result+!=+NULL)%7B%0D%0A++++printf(%22strchr:+found+at+%25d%5Cn%22,+result-str);%0D%0A++++printf(%22strchr+result:+%25s%5Cn%22,+result);%0D%0A++++%7D%0D%0A++else%7B%0D%0A++++printf(%22strchr:+not+found%5Cn%22);%0D%0A++++%7D%0D%0A++return+0;%0D%0A%7D">[点击运行]</a>**</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="type">char</span> str[<span class="number">50</span>] = <span class="string">&quot;Halo everyone!&quot;</span>;</span><br><span class="line">      <span class="type">char</span> *result = <span class="built_in">strchr</span>(str, <span class="string">&#x27;e&#x27;</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">//打印返回的指针会显示查找到的第一个字符之后的内容</span></span><br><span class="line">      <span class="keyword">if</span>(*result != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;strchr: found at %d\n&quot;</span>, result-str);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;strchr result: %s\n&quot;</span>, result);</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;strchr: not found\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">strchr: found at 5</span><br><span class="line">strchr result: everyone!</span><br></pre></td></tr></table></figure>
+
+<h3 id="strrchr"><a href="#strrchr" class="headerlink" title="strrchr"></a>strrchr</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">char</span> *<span class="title function_">strrchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> c)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  在字符串str中查找ASIIC码c对应的字符**最后一次**出现的位置</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  str：字符串指针</span></span><br><span class="line"><span class="comment">  c：要查找的字符(用int强转后传入)</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  如果找到字符c，返回指向该字符的指针</span></span><br><span class="line"><span class="comment">  如果未找到字符c，返回NULL</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>测试代码：</strong>**<a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%23include+%3Cstring.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++char+str%5B50%5D+=+%22Halo+everyone!%22;%0D%0A++char+*result+=+strrchr(str,+%27e%27);%0D%0A%0D%0A++//%E6%89%93%E5%8D%B0%E8%BF%94%E5%9B%9E%E7%9A%84%E6%8C%87%E9%92%88%E4%BC%9A%E6%98%BE%E7%A4%BA%E6%9F%A5%E6%89%BE%E5%88%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B9%8B%E5%90%8E%E7%9A%84%E5%86%85%E5%AE%B9%0D%0A++if(*result+!=+NULL)%7B%0D%0A++++printf(%22strrchr:+found+at+%25d%5Cn%22,+result-str);%0D%0A++++printf(%22strrchr+result:+%25s%5Cn%22,+result);%0D%0A++++%7D%0D%0A++else%7B%0D%0A++++printf(%22strrchr:+not+found%5Cn%22);%0D%0A++++%7D%0D%0A++return+0;%0D%0A%7D">[点击运行]</a>**</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="type">char</span> str[<span class="number">50</span>] = <span class="string">&quot;Halo everyone!&quot;</span>;</span><br><span class="line">      <span class="type">char</span> *result = <span class="built_in">strrchr</span>(str, <span class="string">&#x27;e&#x27;</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">//打印返回的指针会显示查找到的第一个字符之后的内容</span></span><br><span class="line">      <span class="keyword">if</span>(*result != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;strrchr: found at %d\n&quot;</span>, result-str);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;strrchr result: %s\n&quot;</span>, result);</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;strrchr: not found\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">strrchr: found at 13</span><br><span class="line">strrchr result: e!</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="字符串匹配函数"><a href="#字符串匹配函数" class="headerlink" title="字符串匹配函数"></a>字符串匹配函数</h2><h3 id="strstr"><a href="#strstr" class="headerlink" title="strstr"></a>strstr</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">char</span> *<span class="title function_">strstr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  在字符串str1中查找字符串str2**第一次**出现的位置</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  str1：字符串指针</span></span><br><span class="line"><span class="comment">  str2：要查找的字符串</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  如果找到字符串str2，返回指向该字符串的指针</span></span><br><span class="line"><span class="comment">  如果未找到字符串str2，返回NULL</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>测试代码：</strong>**<a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%23include+%3Cstring.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++char+str%5B50%5D+=+%22Halo+everyone!%22;%0D%0A++char+*result+=+strstr(str,+%22Halo%22);%0D%0A%0D%0A++//%E6%89%93%E5%8D%B0%E8%BF%94%E5%9B%9E%E7%9A%84%E6%8C%87%E9%92%88%E4%BC%9A%E6%98%BE%E7%A4%BA%E6%9F%A5%E6%89%BE%E5%88%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B9%8B%E5%90%8E%E7%9A%84%E5%86%85%E5%AE%B9%0D%0A++if(*result+!=+NULL)%7B%0D%0A++++printf(%22strstr:+found+at+%25d%5Cn%22,+result-str);%0D%0A++++%7D%0D%0A++else%7B%0D%0A++++printf(%22strstr:+not+found%5Cn%22);%0D%0A++++%7D%0D%0A++return+0;%0D%0A%7D">[点击运行]</a>**</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="type">char</span> str[<span class="number">50</span>] = <span class="string">&quot;Halo everyone!&quot;</span>;</span><br><span class="line">      <span class="type">char</span> *result = <span class="built_in">strstr</span>(str, <span class="string">&quot;Halo&quot;</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">//打印返回的指针会显示查找到的第一个字符之后的内容</span></span><br><span class="line">      <span class="keyword">if</span>(*result != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;strstr: found at %d\n&quot;</span>, result-str);</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;strstr: not found\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strstr: found at 0</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="字符串转换函数"><a href="#字符串转换函数" class="headerlink" title="字符串转换函数"></a>字符串转换函数</h2><h3 id="atoi"><a href="#atoi" class="headerlink" title="atoi"></a>atoi</h3><p>将字符串转换为int类型，注意传入的字符串需要是纯数字字符串</p>
+<p>其他的如atof、atol、atoll等函数同理，只不过返回值的数据类型不同，如atof是返回float类型，atol是返回long类型，浮点类型在转换的时候会四舍五入。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">atoi</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  将字符串转换为整数</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  str：字符串指针</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  转换后的整数</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>测试代码：</strong><strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%23include+%3Cstdlib.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++char+str%5B50%5D+=+%2212345%22;%0D%0A++int+result+=+atoi(str);%0D%0A%0D%0A++printf(%22atoi:+%25d%5Cn%22,+result);%0D%0A++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="type">char</span> str[<span class="number">50</span>] = <span class="string">&quot;12345&quot;</span>;</span><br><span class="line">      <span class="type">int</span> result = atoi(str);</span><br><span class="line"></span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;atoi: %d\n&quot;</span>, result);</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">atoi: 12345</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="字符串切割函数"><a href="#字符串切割函数" class="headerlink" title="字符串切割函数"></a>字符串切割函数</h2><h3 id="strtok"><a href="#strtok" class="headerlink" title="strtok"></a>strtok</h3><p>字符串切割，按照<code>delim</code>指向的字符串中的字符，切割<code>str</code>指向的字符串。其实就是在<code>str</code>指向的字符串中发现了<code>delim</code>字符串中的字符，就将其变成<code>\0</code>，调用一次<code>strtok</code>只切割一次，切割一次之后，再去切割的时候<code>strtok</code>的第一个参数传<code>NULL</code>，意思是接着上次切割的位置继续切</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li><code>strtok</code>函数会改变原字符串，将切割的位置替换为<code>\0</code>，所以如果不想改变原字符串，需要先复制一份原字符串</li>
+<li>如果<code>str</code>中出现了连续几个<code>delim</code>的分隔符，则这一次切割会将这一段连续的分隔符替换为<code>\0</code>，所以并不是有多少个分隔符就切割多少次，而是有多少个非分隔符的字符串就切割多少次。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">char</span> *<span class="title function_">strtok</span><span class="params">(<span class="type">char</span> *str, <span class="type">const</span> <span class="type">char</span> *delim)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  将字符串按照指定的分隔符进行切割</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  str：字符串指针</span></span><br><span class="line"><span class="comment">  delim：分隔符</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回指向切割后的字符串的指针</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>测试代码：</strong>**<a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%23include+%3Cstring.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++char+str%5B50%5D+=+%221111:2222:3333::444%22;%0D%0A++char+*result;%0D%0A++result+=+strtok(str,+%22:%22);%0D%0A++int+i+=+1;%0D%0A++//%E6%89%93%E5%8D%B0%E5%88%87%E4%B8%8B%E7%9A%84%E7%AC%AC%E4%B8%80%E7%89%87%E7%9A%84%E7%BB%93%E6%9E%9C%0D%0A++printf(%22times+:+%25d+,+result:+%25s%5Cn%22,+i+,+result);%0D%0A%0D%0A++%0D%0A++while+(%0D%0A++++(result+=+strtok(NULL,+%22:%22))+!=+NULL%0D%0A++++)%7B%0D%0A++++i++;%0D%0A++++//%E6%89%93%E5%8D%B0%E5%90%8E%E7%BB%AD%E5%88%87%E5%89%B2%E7%9A%84%E5%AD%97%E7%AC%A6%E7%89%87%0D%0A++++printf(%22times+:+%25d+,+result:+%25s%5Cn%22,+i+,+result);%0D%0A++%7D%0D%0A++return+0;%0D%0A%7D%0D%0A">[点击运行]</a>**</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="type">char</span> str[<span class="number">50</span>] = <span class="string">&quot;1111:2222:3333::444&quot;</span>;</span><br><span class="line">      <span class="type">char</span> *result;</span><br><span class="line">      result = strtok(str, <span class="string">&quot;:&quot;</span>);</span><br><span class="line">      <span class="type">int</span> i = <span class="number">1</span>;</span><br><span class="line">      <span class="comment">//打印切下的第一片的结果</span></span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;times : %d , result: %s\n&quot;</span>, i , result);</span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">      <span class="keyword">while</span> (</span><br><span class="line">        (result = strtok(<span class="literal">NULL</span>, <span class="string">&quot;:&quot;</span>)) != <span class="literal">NULL</span></span><br><span class="line">        )&#123;</span><br><span class="line">        i++;</span><br><span class="line">        <span class="comment">//打印后续切割的字符片</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;times : %d , result: %s\n&quot;</span>, i , result);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">times : 1 , result: 1111</span><br><span class="line">times : 2 , result: 2222</span><br><span class="line">times : 3 , result: 3333</span><br><span class="line">times : 4 , result: 444</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="字符串格式化函数"><a href="#字符串格式化函数" class="headerlink" title="字符串格式化函数"></a>字符串格式化函数</h2><h3 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h3><p>将格式化的数据写入字符串中，类似于<code>printf</code>函数，只不过<code>printf</code>函数是将格式化的数据输出到屏幕上，而<code>sprintf</code>函数是将格式化的数据写入字符串中。功能上有点类似于<a href="#strcpy">strcpy</a>函数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sprintf</span><span class="params">(<span class="type">char</span> *str, <span class="type">const</span> <span class="type">char</span> *format, ...)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  将格式化的数据写入字符串中</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  str：字符串指针</span></span><br><span class="line"><span class="comment">  format：格式化字符串</span></span><br><span class="line"><span class="comment">  ...：可变参数</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回写入的字符数</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>测试代码：</strong><strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0A%0D%0Aint+main()+%7B%0D%0A++char+str%5B50%5D;%0D%0A++int+a+=+10;%0D%0A++float+b+=+3.14;%0D%0A++sprintf(str,+%22a+=+%25d,+b+=+%25f%22,+a,+b);%0D%0A++printf(%22%25s%5Cn%22,+str);%0D%0A++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="type">char</span> str[<span class="number">50</span>];</span><br><span class="line">      <span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">      <span class="type">float</span> b = <span class="number">3.14</span>;</span><br><span class="line">      <span class="built_in">sprintf</span>(str, <span class="string">&quot;a = %d, b = %f&quot;</span>, a, b);</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, str);</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = 10, b = 3.140000</span><br></pre></td></tr></table></figure>
+
+<h3 id="sscanf"><a href="#sscanf" class="headerlink" title="sscanf"></a>sscanf</h3><p>竞赛中超级常用的函数，可以从<code>buf</code>中按照指定格式读取数据</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sscanf</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">const</span> <span class="type">char</span> *format, ...)</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">  从字符串中按照指定格式读取数据</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">  str：字符串指针</span></span><br><span class="line"><span class="comment">  format：格式化字符串</span></span><br><span class="line"><span class="comment">  ...：可变参数</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">  返回读取的参数个数</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>测试代码：</strong><strong><a target="_blank" rel="noopener" href="https://cpp.sh/?source=%23include+%3Cstdio.h%3E%0D%0Aint+main()+%7B%0D%0A++char+str%5B50%5D+=+%22a+=+10,+b+=+3.14%22;%0D%0A++int+a;%0D%0A++float+b;%0D%0A++sscanf(str,+%22a+=+%25d,+b+=+%25f%22,+&a,+&b);%0D%0A++printf(%22a+=+%25d,+b+=+%25f%5Cn%22,+a,+b);%0D%0A++return+0;%0D%0A%7D">[点击运行]</a></strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">      <span class="type">char</span> str[<span class="number">50</span>] = <span class="string">&quot;a = 10, b = 3.14&quot;</span>;</span><br><span class="line">      <span class="type">int</span> a;</span><br><span class="line">      <span class="type">float</span> b;</span><br><span class="line">      <span class="built_in">sscanf</span>(str, <span class="string">&quot;a = %d, b = %f&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;a = %d, b = %f\n&quot;</span>, a, b);</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<figure class="highlight plaintext"><figcaption><span>output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 10, b = 3.140000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+
+        
+      </div>
+
+       
+        <footer class="article-footer">
+           
+        </footer>
+         
+    </div>
+    
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+   
+
+
+<article id="post-2024-7-8-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/07/07/2024-7-8-01/">内存的几种异常情况</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-07T16:00:00.000Z" itemprop="datePublished">2024-07-08</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            855 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="内存溢出-Out-of-Memory"><a href="#内存溢出-Out-of-Memory" class="headerlink" title="内存溢出(Out of Memory)"></a>内存溢出(Out of Memory)</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>内存溢出指程序在申请内存时操作系统无法再向程序提供足够的内存空间，导致程序无法正常执行。结果是程序线程等待触发操作系统未响应，或者线程直接崩溃。</p>
+<hr>
+<h1 id="内存越界-内存踩踏"><a href="#内存越界-内存踩踏" class="headerlink" title="内存越界&#x2F;内存踩踏"></a>内存越界&#x2F;内存踩踏</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><p>内存越界是指程序在对指针或者数组等连续内存进行写操作时，没有考虑区域的大小而直接进行写操作，这样就导致其他区域的内存被写入数据，从而导致数据异常甚至程序崩溃</p>
+<h2 id="常见内存越界场景"><a href="#常见内存越界场景" class="headerlink" title="常见内存越界场景"></a>常见内存越界场景</h2><h3 id="1-数组越界"><a href="#1-数组越界" class="headerlink" title="1. 数组越界"></a>1. 数组越界</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">10</span>];</span><br><span class="line">a[<span class="number">10</span>]=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>即定义了一个长度为10的数组，但是访问了数组第11个元素，导致数组越界，访问了不属于该数组的内存空间，从而发生内存越界。</p>
+<h3 id="2-指针越界"><a href="#2-指针越界" class="headerlink" title="2. 指针越界"></a>2. 指针越界</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p;</span><br><span class="line">p=(<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="number">10</span>);</span><br><span class="line">*p=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>即定义了一个指针，但是没有给它分配内存空间，直接给指针赋值，导致指针越界，访问了不属于该指针的内存空间，从而发生内存越界。<br>&#96;</p>
+<hr>
+<h1 id="内存泄漏-Memory-Leak"><a href="#内存泄漏-Memory-Leak" class="headerlink" title="内存泄漏(Memory Leak)"></a>内存泄漏(Memory Leak)</h1><h2 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h2><p>申请的内存，首地址找不到了，再也没法使用了，也没法释放了，这种就被称为内存泄漏。</p>
+<h2 id="常见内存泄漏场景"><a href="#常见内存泄漏场景" class="headerlink" title="常见内存泄漏场景"></a>常见内存泄漏场景</h2><h3 id="1-指针赋值导致地址丢失"><a href="#1-指针赋值导致地址丢失" class="headerlink" title="1. 指针赋值导致地址丢失"></a>1. 指针赋值导致地址丢失</h3><p>即<a href="https://zaiyuyou.github.io/2024/07/03/2024-7-4-02/">动态内存申请函数</a>返回的指针被重新赋值，或者被其他数据覆盖而导致丢失了原来指向的内存空间地址。</p>
+<h3 id="2-定义函数申请空间后未释放"><a href="#2-定义函数申请空间后未释放" class="headerlink" title="2. 定义函数申请空间后未释放"></a>2. 定义函数申请空间后未释放</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">fun</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="type">char</span> *p;</span><br><span class="line">  p=(<span class="type">char</span> *)<span class="built_in">malloc</span>(<span class="number">100</span>);</span><br><span class="line">  <span class="comment">//接下来，可以用p指向的内存了</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="comment">//由于fun没有释放内存，导致每次调用都泄漏100字节</span></span><br><span class="line">  fun();</span><br><span class="line">  fun();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>即定义了函数中使用了<a href="https://zaiyuyou.github.io/2024-7-4-02">动态内存申请函数</a>，并且将返回的指针存在了栈区，但是在函数结束前并没有释放内存，这样就导致栈区的指针丢失，无法释放了。</p>
+<h3 id="3-经常申请但是很少释放-隐性泄漏"><a href="#3-经常申请但是很少释放-隐性泄漏" class="headerlink" title="3. 经常申请但是很少释放(隐性泄漏)"></a>3. 经常申请但是很少释放(隐性泄漏)</h3><p>即申请内存的频率很高，但是很多情况下这些内存无法得到释放，被长时间占用，并且一直申请新的内存空间，这样的程序在长时间运行之后也会内存溢出从而崩溃。</p>
+<h2 id="内存泄漏的危害"><a href="#内存泄漏的危害" class="headerlink" title="内存泄漏的危害"></a>内存泄漏的危害</h2><p>长时间泄漏内存会导致程序<a href="#%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BAout-of-memory">内存溢出</a></p>
+
+        
+      </div>
+
+       
+        <footer class="article-footer">
+           
+        </footer>
+         
+    </div>
+    
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+
    
 
 
@@ -422,6 +770,73 @@
    
 
 
+<article id="post-2024-7-2-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/07/01/2024-7-2-01/">重生之C语言进阶</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-01T16:00:00.000Z" itemprop="datePublished">2024-07-02</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            109 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
+<h2 id="大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。-索引"><a href="#大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。-索引" class="headerlink" title="大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。## 索引"></a>大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。<br>以下是我的学习笔记索引。<br>## 索引</h2>
+        
+      </div>
+
+       
+        <footer class="article-footer">
+           
+        </footer>
+         
+    </div>
+    
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+   
+
+
 <article id="post-2024-7-2-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
@@ -478,73 +893,6 @@
 <p>其实很简单，static一下就能让操作系统为你的变量保留内存地址了。这也是static的“主要用途”。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">char</span> * <span class="title function_">func</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">char</span> *p = <span class="string">&quot;123&quot;</span>;<span class="comment">//创建变量123</span></span><br><span class="line">    <span class="keyword">return</span> p;<span class="comment">//返回p的地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        
-      </div>
-
-       
-        <footer class="article-footer">
-           
-        </footer>
-         
-    </div>
-    
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-   
-
-
-<article id="post-2024-7-2-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/01/2024-7-2-01/">重生之C语言进阶</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-01T16:00:00.000Z" itemprop="datePublished">2024-07-02</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            109 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
-<h2 id="大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。-索引"><a href="#大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。-索引" class="headerlink" title="大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。以下是我的学习笔记索引。## 索引"></a>大学过得真快啊，眨眼就到大三了，在搞定了《计算机组成原理》、《操作系统》、《数据结构》之后，我觉得我应该重新学一遍C语言，顺便把C的进阶特性和之前的学C以及做项目时遇到的疑点扫一遍。<br>以下是我的学习笔记索引。<br>## 索引</h2>
         
       </div>
 
