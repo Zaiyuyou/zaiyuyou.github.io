@@ -28,11 +28,12 @@
 <meta property="og:description" content="文件指针文件指针就是用于标识一个文件的，程序中所有对文件的操作都需要通过文件指针执行。 文件指针的一般形式FILE* 指针变量标识符； FILE为大写，需要引用&lt;stdio.h&gt; FILE是系统使用typedef定义出来的有关文件信息的一种结构体类型，结构中含有文件名、文件状态和文件当前位置等信息 一般情况下，我们操作文件前必须定义一个文件指针标示我们将要操作的文件 实际编程中使用库函">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-08-04T03:29:29.318Z">
+<meta property="article:modified_time" content="2025-02-24T01:54:02.062Z">
 <meta property="article:author" content="Zaiyuyou">
 <meta property="article:tag" content="开发技巧">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="C">
+<meta property="article:tag" content="文件操作">
 <meta name="twitter:card" content="summary">
   
   
@@ -160,9 +161,29 @@
         
             <a class="category-link" href="/categories/Linux/">
                 Linux
-                <div class="category-count">4</div>
+                <div class="category-count">5</div>
             </a>
-        </div>
+        <div class="children"><div class="category-box">
+            <a class="category-link" href="/categories/Linux/%E7%BC%96%E7%A8%8B/">
+                编程
+                <div class="category-count">1</div>
+            </a>
+        </div></div>
+            <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">
+                前端
+                <div class="category-count">1</div>
+            </a>
+        <div class="children"><div class="category-box">
+            <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/java/">
+                java
+                <div class="category-count">1</div>
+            </a>
+        <div class="children"><div class="category-box">
+            <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/java/%E7%BC%96%E7%A8%8B/">
+                编程
+                <div class="category-count">1</div>
+            </a>
+        </div></div></div></div></div>
     </div>
   </div>
 
@@ -172,7 +193,7 @@
   <div class="widget-wrap">
     <div class="widget">
       <h3 class="widget-title">标签</h3>
-      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8C%87%E9%92%88/" rel="tag">指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" rel="tag">文件操作</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
     </div>
   </div>
 
@@ -217,11 +238,11 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.4k 词 
+            2.5k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" rel="tag">文件操作</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
@@ -269,14 +290,18 @@
 <p><strong>参数：</strong></p>
 <ul>
 <li>stream：要设置的文件指针</li>
-<li>offset：要移动的偏移量</li>
-<li>whence：要移动的位置</li>
+<li>offset：要移动的偏移量<br><code>offset</code>的取值<ul>
+<li>大于0：向文件末尾移动</li>
+<li>小于0：向文件开头移动</li>
+<li>等于0：不移动</li>
 </ul>
-<p><strong>移动文件指针的方式：</strong></p>
-<ul>
-<li>从文件开头开始移动</li>
-<li>从文件当前位置开始移动</li>
-<li>从文件末尾开始移动</li>
+</li>
+<li>whence：要移动的位置<br><code>whence</code>的取值：<ul>
+<li>SEEK_SET(0)：从文件开头开始移动</li>
+<li>SEEK_CUR(1)：从文件当前位置开始移动</li>
+<li>SEEK_END(2)：从文件末尾开始移动</li>
+</ul>
+</li>
 </ul>
 <p><strong>移动文件指针的结束条件：</strong></p>
 <ul>
@@ -500,7 +525,7 @@
   
   <div id="footer-info" class="inner">
     
-    &copy; 2024 Zaiyuyou<br>
+    &copy; 2025 Zaiyuyou<br>
     Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
   </div>
 </footer>
