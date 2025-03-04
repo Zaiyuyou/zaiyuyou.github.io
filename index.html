@@ -220,7 +220,7 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-03-04T03:21:30.851Z" itemprop="datePublished">2025-03-04</time>
+  <time class="dt-published" datetime="2025-03-04T03:23:11.386Z" itemprop="datePublished">2025-03-04</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -464,7 +464,7 @@
 <p><img src="https://github.com/Zaiyuyou/zaiyuyou.github.io/blob/main/source/_posts/images/2025-2-24/2025-03-03-View-Register0.png?raw=true" alt="Alt text"></p>
 <p>在酒吧点个炒饭看看<br><img src="https://github.com/Zaiyuyou/zaiyuyou.github.io/blob/main/source/_posts/images/2025-2-24/2025-03-03-View-Register1.png?raw=true" alt="Alt text"><br>好，全防住了</p>
 <h4 id="MedicalRecords-vue"><a href="#MedicalRecords-vue" class="headerlink" title="MedicalRecords.vue"></a>MedicalRecords.vue</h4><p>通过URL传递的用户ID，对后端进行访问，查询到用户的病历数据</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;medical-records&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 病历列表 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-table</span> <span class="attr">:data</span>=<span class="string">&quot;medicalRecords&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 100%&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;diagnosisDate&quot;</span> <span class="attr">label</span>=<span class="string">&quot;诊断日期&quot;</span> <span class="attr">width</span>=<span class="string">&quot;180&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;doctor&quot;</span> <span class="attr">label</span>=<span class="string">&quot;医生&quot;</span> <span class="attr">width</span>=<span class="string">&quot;180&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;diagnosis&quot;</span> <span class="attr">label</span>=<span class="string">&quot;诊断&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">label</span>=<span class="string">&quot;操作&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">&quot;scope&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;handleDetail(scope.row)&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span>&gt;</span>查看详情<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-table</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 病历详情对话框 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-dialog</span> <span class="attr">title</span>=<span class="string">&quot;病历详情&quot;</span> <span class="attr">:visible.sync</span>=<span class="string">&quot;dialogVisible&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>诊断日期: &#123;&#123; currentRecord.diagnosisDate &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>医生: &#123;&#123; currentRecord.doctor &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>诊断: &#123;&#123; currentRecord.diagnosis &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>备注: &#123;&#123; currentRecord.remark &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">slot</span>=<span class="string">&quot;footer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;dialog-footer&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;dialogVisible = false&quot;</span>&gt;</span>关闭<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> &#123; useRoute &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">userId</span>: <span class="literal">null</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">medicalRecords</span>: [],</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">dialogVisible</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">currentRecord</span>: &#123;&#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">created</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> route = <span class="title function_">useRoute</span>();</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">this</span>.<span class="property">userId</span> = route.<span class="property">params</span>.<span class="property">userId</span>; <span class="comment">// 从路由参数中获取userId</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">this</span>.<span class="title function_">fetchMedicalRecords</span>(); <span class="comment">// 页面加载时调用此方法获取病历数据</span></span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">fetchMedicalRecords</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      axios.<span class="title function_">get</span>(<span class="string">&#x27;/api/medicalRecords&#x27;</span>, &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">params</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">userId</span>: <span class="variable language_">this</span>.<span class="property">userId</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">medicalRecords</span> = response.<span class="property">data</span>;</span></span><br><span class="line"><span class="language-javascript">      &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;获取病历记录失败:&#x27;</span>, error);</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">handleDetail</span>(<span class="params">record</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">currentRecord</span> = record;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">dialogVisible</span> = <span class="literal">true</span>;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.medical-records</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;medical-records&quot;</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 病历列表 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-table</span> <span class="attr">:data</span>=<span class="string">&quot;medicalRecords&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 100%&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;diagnosisDate&quot;</span> <span class="attr">label</span>=<span class="string">&quot;诊断日期&quot;</span> <span class="attr">width</span>=<span class="string">&quot;180&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;doctor&quot;</span> <span class="attr">label</span>=<span class="string">&quot;医生&quot;</span> <span class="attr">width</span>=<span class="string">&quot;180&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;diagnosis&quot;</span> <span class="attr">label</span>=<span class="string">&quot;诊断&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">prop</span>=<span class="string">&quot;remark&quot;</span> <span class="attr">label</span>=<span class="string">&quot;备注&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">label</span>=<span class="string">&quot;操作&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">&quot;scope&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;handleDetail(scope.row)&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span>&gt;</span>查看详情<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-table</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">      <span class="comment">&lt;!-- 病历详情对话框 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-dialog</span> <span class="attr">title</span>=<span class="string">&quot;病历详情&quot;</span> <span class="attr">:visible.sync</span>=<span class="string">&quot;dialogVisible&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>诊断日期: &#123;&#123; currentRecord.diagnosisDate &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>医生: &#123;&#123; currentRecord.doctor &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>诊断: &#123;&#123; currentRecord.diagnosis &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>备注: &#123;&#123; currentRecord.remark &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">slot</span>=<span class="string">&quot;footer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;dialog-footer&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;dialogVisible = false&quot;</span>&gt;</span>关闭<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-dialog</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">import</span> &#123; useRoute &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">userId</span>: <span class="literal">null</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">medicalRecords</span>: [], <span class="comment">// 动态获取的病历数据</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">dialogVisible</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">currentRecord</span>: &#123;&#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">created</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> route = <span class="title function_">useRoute</span>();</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">userId</span> = route.<span class="property">params</span>.<span class="property">userId</span>; <span class="comment">// 从路由参数中获取userId</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="title function_">fetchMedicalRecords</span>(); <span class="comment">// 页面加载时调用此方法获取病历数据</span></span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">fetchMedicalRecords</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">handleDetail</span>(<span class="params">record</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">currentRecord</span> = record;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">dialogVisible</span> = <span class="literal">true</span>;</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;;</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.medical-records</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>效果图<br><img src="https://github.com/Zaiyuyou/zaiyuyou.github.io/blob/main/source/_posts/images/2025-2-24/2025-03-03-View-MedicalRecords0.png" alt="Alt text"></p>
 <h2 id="系统漏洞分析"><a href="#系统漏洞分析" class="headerlink" title="系统漏洞分析"></a>系统漏洞分析</h2><ol>
@@ -1018,6 +1018,292 @@
    
 
 
+<article id="post-2024-7-21-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/07/20/2024-7-21-01/">文件和文件指针的操作</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-20T16:00:00.000Z" itemprop="datePublished">2024-07-21</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.5k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" rel="tag">文件操作</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="文件指针"><a href="#文件指针" class="headerlink" title="文件指针"></a>文件指针</h2><p>文件指针就是用于标识一个文件的，程序中所有对文件的操作都需要通过文件指针执行。</p>
+<h3 id="文件指针的一般形式"><a href="#文件指针的一般形式" class="headerlink" title="文件指针的一般形式"></a>文件指针的一般形式</h3><p>FILE* 指针变量标识符；</p>
+<p>FILE为大写，需要引用&lt;stdio.h&gt;</p>
+<p>FILE是系统使用typedef定义出来的有关文件信息的一种结构体类型，结构中含有文件名、文件状态和文件当前位置等信息</p>
+<p>一般情况下，我们操作文件前必须定义一个文件指针标示我们将要操作的文件</p>
+<p>实际编程中使用库函数操作文件，无需关心FILE结构体的细节，只需要将文件指针传给io库函数，库函数再通过FILE结构体里的信息对文件进行操作。</p>
+<p>FILE 结构体的定义：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">short</span> level;            <span class="comment">//缓冲区“满”或“空”的程度</span></span><br><span class="line">    <span class="type">unsigned</span> flags;         <span class="comment">//文件状态标志</span></span><br><span class="line">    <span class="type">char</span> fd;                <span class="comment">//文件描述符</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> hold;     <span class="comment">//如无缓冲区不读取字符</span></span><br><span class="line">    <span class="type">short</span> bsize;            <span class="comment">//缓冲区的大小 </span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> *buffer;  <span class="comment">//数据缓冲区的位置</span></span><br><span class="line">    <span class="type">unsigned</span> ar;            <span class="comment">//文件位置指示器</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> *curp;    <span class="comment">//文件位置指示器</span></span><br><span class="line">    <span class="type">unsigned</span> istemp;        <span class="comment">//临时文件指示器</span></span><br><span class="line">    <span class="type">short</span> token;            <span class="comment">//用于有效性检查</span></span><br><span class="line">&#125; FILE;</span><br></pre></td></tr></table></figure>
+
+<p><strong>对文件操作的步骤：</strong></p>
+<ol>
+<li>对文件进行读写等操作之前要打开文件得到文件指针</li>
+<li>可以通过文件指针对文件进行读写等操作</li>
+<li>读写等操作完毕后，要关闭文件，关闭文件后，就不能再通过此文件指针操作文件了</li>
+</ol>
+<hr>
+<h2 id="文件指针位置操作函数"><a href="#文件指针位置操作函数" class="headerlink" title="文件指针位置操作函数"></a>文件指针位置操作函数</h2><h3 id="ftell"><a href="#ftell" class="headerlink" title="ftell"></a>ftell</h3><p>获取文件指针的位置</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">ftell</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>ftell函数返回<code>stream</code>标识的文件指针的位置。</p>
+<p><strong>返回值：</strong></p>
+<ul>
+<li>成功：返回文件指针的位置</li>
+<li>失败：返回-1</li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul>
+<li>stream：要获取的文件指针</li>
+</ul>
+<h3 id="fseek"><a href="#fseek" class="headerlink" title="fseek"></a>fseek</h3><p>设置文件指针的位置</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fseek</span><span class="params">(</span></span><br><span class="line"><span class="params">  FILE *stream, </span></span><br><span class="line"><span class="params">  <span class="type">long</span> offset, </span></span><br><span class="line"><span class="params">  <span class="type">int</span> whence)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>fseek函数将<code>stream</code>标识的文件指针移动到<code>whence</code>指定的位置，移动的偏移量为<code>offset</code>。</p>
+<p><strong>返回值：</strong></p>
+<ul>
+<li><p>成功：返回0</p>
+</li>
+<li><p>失败：返回非0</p>
+</li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul>
+<li>stream：要设置的文件指针</li>
+<li>offset：要移动的偏移量<br><code>offset</code>的取值<ul>
+<li>大于0：向文件末尾移动</li>
+<li>小于0：向文件开头移动</li>
+<li>等于0：不移动</li>
+</ul>
+</li>
+<li>whence：要移动的位置<br><code>whence</code>的取值：<ul>
+<li>SEEK_SET(0)：从文件开头开始移动</li>
+<li>SEEK_CUR(1)：从文件当前位置开始移动</li>
+<li>SEEK_END(2)：从文件末尾开始移动</li>
+</ul>
+</li>
+</ul>
+<p><strong>移动文件指针的结束条件：</strong></p>
+<ul>
+<li>移动到文件的末尾</li>
+<li>移动到文件的<code>size-1</code>个字符</li>
+<li>移动到文件结束符EOF</li>
+</ul>
+<h3 id="rewind"><a href="#rewind" class="headerlink" title="rewind"></a>rewind</h3><p>将文件指针重置到文件开头</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">rewind</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>rewind函数将<code>stream</code>标识的文件指针重置到文件开头。</p>
+<p><strong>返回值：</strong></p>
+<ul>
+<li>无</li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul>
+<li>stream：要重置的文件指针</li>
+</ul>
+<hr>
+<h2 id="文件操作函数"><a href="#文件操作函数" class="headerlink" title="文件操作函数"></a>文件操作函数</h2><h3 id="fopen"><a href="#fopen" class="headerlink" title="fopen"></a>fopen</h3><p>打开文件并得到文件指针</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FILE *<span class="title function_">fopen</span><span class="params">(</span></span><br><span class="line"><span class="params">  <span class="type">const</span> <span class="type">char</span> *filename, </span></span><br><span class="line"><span class="params">  <span class="type">const</span> <span class="type">char</span> *mode)</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>文件指针的初始化：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FILE *fp = <span class="literal">NULL</span>;</span><br><span class="line">fp = fopen(<span class="string">&quot;test.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (fp == <span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;文件打开失败\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>返回值：</strong></p>
+<ul>
+<li>成功：返回文件指针</li>
+<li>失败：返回NULL</li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul>
+<li>filename：要打开的文件路径</li>
+<li>mode：打开文件的方式</li>
+</ul>
+<p><strong>文件打开路径(filename)：</strong></p>
+<ul>
+<li>绝对路径：从盘符开始的路径<code>C:/test/abc.txt</code></li>
+<li>相对路径：从当前路径开始的路径<code>./abc.txt</code></li>
+</ul>
+<p><strong>文件打开方式(mode)：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">模式</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">r</td>
+<td align="center">只读，文件必须存在</td>
+</tr>
+<tr>
+<td align="center">w</td>
+<td align="center">只写，文件不存在则创建，存在则清空</td>
+</tr>
+<tr>
+<td align="center">a</td>
+<td align="center">只写，文件不存在则创建，存在则追加</td>
+</tr>
+<tr>
+<td align="center">r+</td>
+<td align="center">读写，文件必须存在</td>
+</tr>
+<tr>
+<td align="center">w+</td>
+<td align="center">读写，文件不存在则创建，存在则清空</td>
+</tr>
+<tr>
+<td align="center">a+</td>
+<td align="center">读写，文件不存在则创建，存在则追加</td>
+</tr>
+</tbody></table>
+<p><strong>文件打开模式(mode)的补充：</strong></p>
+<p><strong><code>+</code>的意义：</strong></p>
+<ul>
+<li>可以同时进行读写操作</li>
+<li>文件指针在打开文件时默认指向文件开头，<code>r+</code>和<code>w+</code>会清空文件；<code>a+</code>不会清空文件，文件指针在打开文件时默认指向文件末尾。</li>
+</ul>
+<h3 id="fclose"><a href="#fclose" class="headerlink" title="fclose"></a>fclose</h3><p>关闭文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fclose</span><span class="params">(FILE *fp)</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>返回值：</strong></p>
+<ul>
+<li>成功：返回0</li>
+<li>失败：返回EOF</li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul>
+<li>fp：要关闭的文件指针</li>
+</ul>
+<p><strong>关闭文件的意义：</strong></p>
+<ul>
+<li>关闭文件后，文件指针将不再指向该文件，不能通过该文件指针对文件进行操作</li>
+<li>关闭文件后，文件缓冲区中的数据会写入文件，文件指针指向文件末尾</li>
+<li>关闭文件后，文件缓冲区会被释放，文件指针指向NULL</li>
+</ul>
+<p><strong>关闭文件的方式：</strong></p>
+<ul>
+<li>使用<code>fclose</code>函数关闭文件</li>
+<li>程序结束时，操作系统会自动关闭所有打开的文件</li>
+<li>程序结束时，如果文件没有被关闭，操作系统会自动关闭文件，但会输出警告信息</li>
+</ul>
+<p><strong>关闭文件的意义：</strong></p>
+<ul>
+<li>关闭文件后，文件指针将不再指向该文件，不能通过该文件指针对文件进行操作</li>
+<li>关闭文件后，文件缓冲区中的数据会写入文件，文件指针指向文件末尾</li>
+<li>关闭文件后，文件缓冲区会被释放，文件指针指向NULL</li>
+</ul>
+<h3 id="feof"><a href="#feof" class="headerlink" title="feof"></a>feof</h3><p>判断文件指针是否到达文件末尾</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">feof</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>feof函数判断<code>stream</code>标识的文件指针是否到达文件末尾。</p>
+<p><strong>返回值：</strong></p>
+<ul>
+<li>到达文件末尾：返回非0</li>
+<li>未到达文件末尾：返回0</li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul>
+<li>stream：要判断的文件指针</li>
+</ul>
+<h3 id="ferror"><a href="#ferror" class="headerlink" title="ferror"></a>ferror</h3><p>判断文件操作是否出错</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">ferror</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>ferror函数判断<code>stream</code>标识的文件操作是否出错。</p>
+<p><strong>返回值：</strong></p>
+<ul>
+<li><p>出错：返回非0</p>
+</li>
+<li><p>未出错：返回0</p>
+</li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul>
+<li>stream：要判断的文件指针</li>
+</ul>
+<h3 id="clearerr"><a href="#clearerr" class="headerlink" title="clearerr"></a>clearerr</h3><p>清除文件指针的错误标志</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">clearerr</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>clearerr函数清除<code>stream</code>标识的文件指针的错误标志。</p>
+<p><strong>返回值：</strong></p>
+<ul>
+<li>无</li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul>
+<li>stream：要清除的文件指针</li>
+</ul>
+<h3 id="fflush"><a href="#fflush" class="headerlink" title="fflush"></a>fflush</h3><p>刷新文件缓冲区</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fflush</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>fflush函数刷新<code>stream</code>标识的文件缓冲区。</p>
+<p><strong>返回值：</strong></p>
+<ul>
+<li><p>成功：返回0</p>
+</li>
+<li><p>失败：返回EOF</p>
+</li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul>
+<li>stream：要刷新的文件指针</li>
+</ul>
+
+        
+      </div>
+
+       
+        <footer class="article-footer">
+           
+        </footer>
+         
+    </div>
+    
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+   
+
+
 <article id="post-2024-7-25-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
@@ -1290,292 +1576,6 @@
 <li>pos：要移动到的位置</li>
 </ul>
 <hr>
-
-        
-      </div>
-
-       
-        <footer class="article-footer">
-           
-        </footer>
-         
-    </div>
-    
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-   
-
-
-<article id="post-2024-7-21-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/20/2024-7-21-01/">文件和文件指针的操作</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-20T16:00:00.000Z" itemprop="datePublished">2024-07-21</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.5k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="tag">开发技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" rel="tag">文件操作</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <h2 id="文件指针"><a href="#文件指针" class="headerlink" title="文件指针"></a>文件指针</h2><p>文件指针就是用于标识一个文件的，程序中所有对文件的操作都需要通过文件指针执行。</p>
-<h3 id="文件指针的一般形式"><a href="#文件指针的一般形式" class="headerlink" title="文件指针的一般形式"></a>文件指针的一般形式</h3><p>FILE* 指针变量标识符；</p>
-<p>FILE为大写，需要引用&lt;stdio.h&gt;</p>
-<p>FILE是系统使用typedef定义出来的有关文件信息的一种结构体类型，结构中含有文件名、文件状态和文件当前位置等信息</p>
-<p>一般情况下，我们操作文件前必须定义一个文件指针标示我们将要操作的文件</p>
-<p>实际编程中使用库函数操作文件，无需关心FILE结构体的细节，只需要将文件指针传给io库函数，库函数再通过FILE结构体里的信息对文件进行操作。</p>
-<p>FILE 结构体的定义：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">short</span> level;            <span class="comment">//缓冲区“满”或“空”的程度</span></span><br><span class="line">    <span class="type">unsigned</span> flags;         <span class="comment">//文件状态标志</span></span><br><span class="line">    <span class="type">char</span> fd;                <span class="comment">//文件描述符</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> hold;     <span class="comment">//如无缓冲区不读取字符</span></span><br><span class="line">    <span class="type">short</span> bsize;            <span class="comment">//缓冲区的大小 </span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> *buffer;  <span class="comment">//数据缓冲区的位置</span></span><br><span class="line">    <span class="type">unsigned</span> ar;            <span class="comment">//文件位置指示器</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> *curp;    <span class="comment">//文件位置指示器</span></span><br><span class="line">    <span class="type">unsigned</span> istemp;        <span class="comment">//临时文件指示器</span></span><br><span class="line">    <span class="type">short</span> token;            <span class="comment">//用于有效性检查</span></span><br><span class="line">&#125; FILE;</span><br></pre></td></tr></table></figure>
-
-<p><strong>对文件操作的步骤：</strong></p>
-<ol>
-<li>对文件进行读写等操作之前要打开文件得到文件指针</li>
-<li>可以通过文件指针对文件进行读写等操作</li>
-<li>读写等操作完毕后，要关闭文件，关闭文件后，就不能再通过此文件指针操作文件了</li>
-</ol>
-<hr>
-<h2 id="文件指针位置操作函数"><a href="#文件指针位置操作函数" class="headerlink" title="文件指针位置操作函数"></a>文件指针位置操作函数</h2><h3 id="ftell"><a href="#ftell" class="headerlink" title="ftell"></a>ftell</h3><p>获取文件指针的位置</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">ftell</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
-
-<p>ftell函数返回<code>stream</code>标识的文件指针的位置。</p>
-<p><strong>返回值：</strong></p>
-<ul>
-<li>成功：返回文件指针的位置</li>
-<li>失败：返回-1</li>
-</ul>
-<p><strong>参数：</strong></p>
-<ul>
-<li>stream：要获取的文件指针</li>
-</ul>
-<h3 id="fseek"><a href="#fseek" class="headerlink" title="fseek"></a>fseek</h3><p>设置文件指针的位置</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fseek</span><span class="params">(</span></span><br><span class="line"><span class="params">  FILE *stream, </span></span><br><span class="line"><span class="params">  <span class="type">long</span> offset, </span></span><br><span class="line"><span class="params">  <span class="type">int</span> whence)</span>;</span><br></pre></td></tr></table></figure>
-
-<p>fseek函数将<code>stream</code>标识的文件指针移动到<code>whence</code>指定的位置，移动的偏移量为<code>offset</code>。</p>
-<p><strong>返回值：</strong></p>
-<ul>
-<li><p>成功：返回0</p>
-</li>
-<li><p>失败：返回非0</p>
-</li>
-</ul>
-<p><strong>参数：</strong></p>
-<ul>
-<li>stream：要设置的文件指针</li>
-<li>offset：要移动的偏移量<br><code>offset</code>的取值<ul>
-<li>大于0：向文件末尾移动</li>
-<li>小于0：向文件开头移动</li>
-<li>等于0：不移动</li>
-</ul>
-</li>
-<li>whence：要移动的位置<br><code>whence</code>的取值：<ul>
-<li>SEEK_SET(0)：从文件开头开始移动</li>
-<li>SEEK_CUR(1)：从文件当前位置开始移动</li>
-<li>SEEK_END(2)：从文件末尾开始移动</li>
-</ul>
-</li>
-</ul>
-<p><strong>移动文件指针的结束条件：</strong></p>
-<ul>
-<li>移动到文件的末尾</li>
-<li>移动到文件的<code>size-1</code>个字符</li>
-<li>移动到文件结束符EOF</li>
-</ul>
-<h3 id="rewind"><a href="#rewind" class="headerlink" title="rewind"></a>rewind</h3><p>将文件指针重置到文件开头</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">rewind</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
-
-<p>rewind函数将<code>stream</code>标识的文件指针重置到文件开头。</p>
-<p><strong>返回值：</strong></p>
-<ul>
-<li>无</li>
-</ul>
-<p><strong>参数：</strong></p>
-<ul>
-<li>stream：要重置的文件指针</li>
-</ul>
-<hr>
-<h2 id="文件操作函数"><a href="#文件操作函数" class="headerlink" title="文件操作函数"></a>文件操作函数</h2><h3 id="fopen"><a href="#fopen" class="headerlink" title="fopen"></a>fopen</h3><p>打开文件并得到文件指针</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FILE *<span class="title function_">fopen</span><span class="params">(</span></span><br><span class="line"><span class="params">  <span class="type">const</span> <span class="type">char</span> *filename, </span></span><br><span class="line"><span class="params">  <span class="type">const</span> <span class="type">char</span> *mode)</span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>文件指针的初始化：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FILE *fp = <span class="literal">NULL</span>;</span><br><span class="line">fp = fopen(<span class="string">&quot;test.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (fp == <span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;文件打开失败\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>返回值：</strong></p>
-<ul>
-<li>成功：返回文件指针</li>
-<li>失败：返回NULL</li>
-</ul>
-<p><strong>参数：</strong></p>
-<ul>
-<li>filename：要打开的文件路径</li>
-<li>mode：打开文件的方式</li>
-</ul>
-<p><strong>文件打开路径(filename)：</strong></p>
-<ul>
-<li>绝对路径：从盘符开始的路径<code>C:/test/abc.txt</code></li>
-<li>相对路径：从当前路径开始的路径<code>./abc.txt</code></li>
-</ul>
-<p><strong>文件打开方式(mode)：</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">模式</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">r</td>
-<td align="center">只读，文件必须存在</td>
-</tr>
-<tr>
-<td align="center">w</td>
-<td align="center">只写，文件不存在则创建，存在则清空</td>
-</tr>
-<tr>
-<td align="center">a</td>
-<td align="center">只写，文件不存在则创建，存在则追加</td>
-</tr>
-<tr>
-<td align="center">r+</td>
-<td align="center">读写，文件必须存在</td>
-</tr>
-<tr>
-<td align="center">w+</td>
-<td align="center">读写，文件不存在则创建，存在则清空</td>
-</tr>
-<tr>
-<td align="center">a+</td>
-<td align="center">读写，文件不存在则创建，存在则追加</td>
-</tr>
-</tbody></table>
-<p><strong>文件打开模式(mode)的补充：</strong></p>
-<p><strong><code>+</code>的意义：</strong></p>
-<ul>
-<li>可以同时进行读写操作</li>
-<li>文件指针在打开文件时默认指向文件开头，<code>r+</code>和<code>w+</code>会清空文件；<code>a+</code>不会清空文件，文件指针在打开文件时默认指向文件末尾。</li>
-</ul>
-<h3 id="fclose"><a href="#fclose" class="headerlink" title="fclose"></a>fclose</h3><p>关闭文件</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fclose</span><span class="params">(FILE *fp)</span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>返回值：</strong></p>
-<ul>
-<li>成功：返回0</li>
-<li>失败：返回EOF</li>
-</ul>
-<p><strong>参数：</strong></p>
-<ul>
-<li>fp：要关闭的文件指针</li>
-</ul>
-<p><strong>关闭文件的意义：</strong></p>
-<ul>
-<li>关闭文件后，文件指针将不再指向该文件，不能通过该文件指针对文件进行操作</li>
-<li>关闭文件后，文件缓冲区中的数据会写入文件，文件指针指向文件末尾</li>
-<li>关闭文件后，文件缓冲区会被释放，文件指针指向NULL</li>
-</ul>
-<p><strong>关闭文件的方式：</strong></p>
-<ul>
-<li>使用<code>fclose</code>函数关闭文件</li>
-<li>程序结束时，操作系统会自动关闭所有打开的文件</li>
-<li>程序结束时，如果文件没有被关闭，操作系统会自动关闭文件，但会输出警告信息</li>
-</ul>
-<p><strong>关闭文件的意义：</strong></p>
-<ul>
-<li>关闭文件后，文件指针将不再指向该文件，不能通过该文件指针对文件进行操作</li>
-<li>关闭文件后，文件缓冲区中的数据会写入文件，文件指针指向文件末尾</li>
-<li>关闭文件后，文件缓冲区会被释放，文件指针指向NULL</li>
-</ul>
-<h3 id="feof"><a href="#feof" class="headerlink" title="feof"></a>feof</h3><p>判断文件指针是否到达文件末尾</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">feof</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
-
-<p>feof函数判断<code>stream</code>标识的文件指针是否到达文件末尾。</p>
-<p><strong>返回值：</strong></p>
-<ul>
-<li>到达文件末尾：返回非0</li>
-<li>未到达文件末尾：返回0</li>
-</ul>
-<p><strong>参数：</strong></p>
-<ul>
-<li>stream：要判断的文件指针</li>
-</ul>
-<h3 id="ferror"><a href="#ferror" class="headerlink" title="ferror"></a>ferror</h3><p>判断文件操作是否出错</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">ferror</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
-
-<p>ferror函数判断<code>stream</code>标识的文件操作是否出错。</p>
-<p><strong>返回值：</strong></p>
-<ul>
-<li><p>出错：返回非0</p>
-</li>
-<li><p>未出错：返回0</p>
-</li>
-</ul>
-<p><strong>参数：</strong></p>
-<ul>
-<li>stream：要判断的文件指针</li>
-</ul>
-<h3 id="clearerr"><a href="#clearerr" class="headerlink" title="clearerr"></a>clearerr</h3><p>清除文件指针的错误标志</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">clearerr</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
-
-<p>clearerr函数清除<code>stream</code>标识的文件指针的错误标志。</p>
-<p><strong>返回值：</strong></p>
-<ul>
-<li>无</li>
-</ul>
-<p><strong>参数：</strong></p>
-<ul>
-<li>stream：要清除的文件指针</li>
-</ul>
-<h3 id="fflush"><a href="#fflush" class="headerlink" title="fflush"></a>fflush</h3><p>刷新文件缓冲区</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">fflush</span><span class="params">(FILE *stream)</span>;</span><br></pre></td></tr></table></figure>
-
-<p>fflush函数刷新<code>stream</code>标识的文件缓冲区。</p>
-<p><strong>返回值：</strong></p>
-<ul>
-<li><p>成功：返回0</p>
-</li>
-<li><p>失败：返回EOF</p>
-</li>
-</ul>
-<p><strong>参数：</strong></p>
-<ul>
-<li>stream：要刷新的文件指针</li>
-</ul>
 
         
       </div>
